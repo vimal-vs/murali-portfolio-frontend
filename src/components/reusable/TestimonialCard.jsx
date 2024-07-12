@@ -1,5 +1,5 @@
 import Image from 'next/image'
-import quote from '../assets/inverted_quote.svg'
+import quote from '@assets/inverted_quote.svg'
 
 export default function TestimonialCard( {name, designation, content} ) {
     return (

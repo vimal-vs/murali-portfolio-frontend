@@ -1,6 +1,6 @@
 import Image from "next/image"
-import Circle from '../assets/blackCircle.svg'
-import Arrow from '../assets/arrow_RU.svg'
+import Circle from '@assets/blackCircle.svg'
+import Arrow from '@assets/arrow_RU.svg'
 import Link from "next/link"
 
 export default function DownloadCard( {name, bgColor, icon, link} ) {
