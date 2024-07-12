@@ -1,16 +1,33 @@
+"use client";
 import Image from "next/image"
-import bg from "@/assets/lavenderBg1.svg"
+import bg from "@/assets/image.svg"
+import { Typewriter } from 'react-simple-typewriter'
+import { Satisfy } from "next/font/google";
+import { cn } from "@/utils/cn";
+import Link from "next/link";
+
+const satisfy = Satisfy({ subsets: ["latin"], weight: "400" });
 
 export default function AboutMe() {
     return (
         <div className="pl-10">
-            <div className="flex justify-end">
-                <Image src={bg} className="absolute -top-16"></Image>
+            <div className="hidden md:flex justify-end">
+                <Image src={bg} width={600} height={600} className="absolute -top-3"></Image>
             </div>
-            <div className="space-y-4">
-                <h1 className="text-7xl pt-20">Murali Dharan R.</h1>
-                <div className="font-bold text-xl text-[#8280F2]">
-                    <p>CAREER COACH</p>
+            <div className="space-y-4 md:-mt-12">
+                <h1 className={cn(satisfy.className, "text-[4.75rem] pt-20 flex gap-4")}>Murali Dharan <p className="-mt-1">R</p></h1>
+                <div className="font-bold text-xl text-purple">
+                    <Typewriter
+                        words={['CAREER COACH', 'TRAINER', 'SPEAKER']}
+                        loop
+                        cursor
+                        cursorStyle='|'
+                        cursorColor='#FDC435'
+                        cursorBlinking={false}
+                        typeSpeed={100}
+                        deleteSpeed={50}
+                        delaySpeed={2000}
+                    />
                     <p>FOUNDER - CONNECT TRAINING SOLUTIONS</p>
                 </div>
                 <div>
@@ -20,8 +37,8 @@ export default function AboutMe() {
                 </div>
             </div>
             <div className="flex justify-start gap-6">
-                <button type="button" className="rounded bg-sm bg-yellow-500 px-5 py-2">My Work</button>
-                <button type="button" className="rounded bg-sm bg-[#8280F2] text-white px-5 py-2 ">Contact</button>
+                <Link href={""} className="rounded bg-sm bg-yellow px-5 py-2">My Work</Link>
+                <Link href={""} className="rounded bg-sm bg-purple text-white px-5 py-2 ">Contact</Link>
             </div>
         </div>
     )
