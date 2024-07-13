@@ -14,9 +14,11 @@
     "next": "14.2.4",
     "react": "^18",
     "react-dom": "^18",
+    "react-floating-whatsapp": "^5.0.8",
     "react-icons": "^5.2.1",
     "react-simple-typewriter": "^5.0.1",
-    "tailwind-merge": "^2.4.0"
+    "tailwind-merge": "^2.4.0",
+    "vara": "^1.4.1"
   },
   "devDependencies": {
     "eslint": "^8",
