@@ -37,7 +37,7 @@ export default function Header() {
         animate={{ opacity: 1, x: 0 }}
         transition={{ duration: 0.5 }}
       >
-        {isScrolled && "Murali Dharan R"}
+        {isScrolled && "Murali Dharan R."}
       </motion.h1>
       <div className="flex gap-8 font-semibold">
         {navItems.map(item => (

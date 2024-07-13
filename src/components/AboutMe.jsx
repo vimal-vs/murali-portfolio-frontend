@@ -15,7 +15,7 @@ export default function AboutMe() {
                 <Image src={bg} width={600} height={600} className="absolute -top-3"></Image>
             </div>
             <div className="space-y-4 md:-mt-12">
-                <h1 className={cn(satisfy.className, "text-[4.75rem] pt-20 flex gap-4")}>Murali Dharan <p className="-mt-1">R</p></h1>
+                <h1 className={cn(satisfy.className, "text-[4.75rem] pt-20 flex gap-4")}>Murali Dharan <p className="-mt-1">R.</p></h1>
                 <div className="font-bold text-xl text-purple">
                     <Typewriter
                         words={['CAREER COACH', 'TRAINER', 'SPEAKER']}
