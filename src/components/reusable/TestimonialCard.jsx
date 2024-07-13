@@ -3,14 +3,14 @@ import quote from '@assets/inverted_quote.svg'
 
 export default function TestimonialCard({ name, designation, content }) {
     return (
-        <div className="py-4 flex justify-center">
-            <div className="block px-4 py-2 max-w-md bg-purple rounded-2xl border">
-                <Image src={quote} width={50} height={50} className="pb-4" />
-                <h1 className="mb-2 font-sm text-white">
-                    {content}
-                </h1>
-                <p className=" font-md text-white">{name}</p>
-                <p className=" font-normal text-yellow-400 pb-4">{designation}</p>
+        <div className="w-[400px] h-[280px] flex flex-col bg-purple rounded-2xl border">
+            <Image src={quote} width={50} height={50} className="my-6 ml-6" />
+            <div className='flex flex-col justify-between h-full px-6'>
+                <h1 className="mb-2 font-sm text-white">{content}</h1>
+                <div>
+                    <p className="font-medium text-white">{name}</p>
+                    <p className="font-medium text-yellow pb-4">{designation}</p>
+                </div>
             </div>
         </div>
     )
