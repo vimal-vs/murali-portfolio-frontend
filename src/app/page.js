@@ -1,5 +1,4 @@
 import DownloadCard from "@/components/reusable/DownloadCard";
-import TestimonialCard from "@/components/reusable/TestimonialCard";
 import AboutMe from "@/components/AboutMe";
 import StatsCard from "@components/reusable/StatsCard";
 import RecentBlogs from "@components/reusable/RecentBlogs";
@@ -9,6 +8,7 @@ import pic from '../assets/downloadCard_icon_1.svg'
 import iconHeart from '../assets/heart.svg'
 import iconStar from '../assets/star.svg'
 import iconTri from '../assets/triangle.svg'
+import Testimonials from "@components/Testimonials";
 
 
 export default function Home() {
@@ -21,12 +21,11 @@ export default function Home() {
         <StatsCard icon={iconTri} content={"asdf asdfasdf asdfasd asdf asdfasd"} stats={"30%"} />
       </div>
       <LandingVideo embedId={"WGvtr4SPGpw?si=7ktQKc03n6e-sfFm"} />
-      <Seperator text={"Trusted by the best"} bgColor={"#FDC435"}/>
-      <Seperator text={"Customer Testimonials"} bgColor={"#fff"}/>
-      <TestimonialCard name={"John Doe"} designation={"Student"} content={"asdf asdfasdf asdf asdfakjsdfhas adfkajsdhf dsf !! "} />
-      <Seperator text={"My recent blogs"} bgColor={"#fff"}/>
+      <Seperator text={"Trusted by the best"} bgColor={"#FDC435"} />
+      <Testimonials />
+      <Seperator text={"My recent blogs"} bgColor={"#fff"} />
       <RecentBlogs />
-      <Seperator text={"Want to make an appointment?"} bgColor={"#8280F2"}/>
+      <Seperator text={"Want to make an appointment ?"} bgColor={"#8280F2"} />
       <DownloadCard name={"Media Kit"} icon={pic} link={"https://open.spotify.com/"} bgColor={"#8280F2"} />
     </main>
   );
