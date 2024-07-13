@@ -13,13 +13,13 @@ import iconTri from '../assets/triangle.svg'
 export default function Home() {
   return (
     <main className="flex flex-col">
-      <AboutMe /> 
-      <div className="flex justify-around">
-        <StatsCard icon = {iconHeart} content = {"asdfasdfasdfasdfasd asdfasdfasd"} stats = {"10M"}/>
-        <StatsCard icon = {iconStar} content = {"asdfasdfasdfasdfasd asdfasdfasd"} stats = {"21"}/>
-        <StatsCard icon = {iconTri} content = {"asdfasdfasdfasdfasd asdfasdfasd"} stats = {"30%"}/>
+      <AboutMe />
+      <div className="flex justify-around mt-20">
+        <StatsCard icon={iconHeart} content={"asdfa sdfasd fas dfasd asdfa sdfasd"} stats={"10M"} />
+        <StatsCard icon={iconStar} content={"asdfa sdf asdfas dfasd asdfasdfasd"} stats={"21"} />
+        <StatsCard icon={iconTri} content={"asdf asdfasdf asdfasd asdf asdfasd"} stats={"30%"} />
       </div>
-      <LandingVideo embedId={"WGvtr4SPGpw?si=7ktQKc03n6e-sfFm"}/> 
+      <LandingVideo embedId={"WGvtr4SPGpw?si=7ktQKc03n6e-sfFm"} />
       <TestimonialCard name={"John Doe"} designation={"Student"} content={"asdf asdfasdf asdf asdfakjsdfhas adfkajsdhf dsf !! "} />
       <RecentBlogs />
       <DownloadCard name={"Media Kit"} icon={pic} link={"https://open.spotify.com/"} bgColor={"#8280F2"} />

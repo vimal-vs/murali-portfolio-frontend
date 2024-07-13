@@ -1,16 +1,22 @@
+"use client";
+
+import { motion } from "framer-motion";
 import Image from "next/image";
 
-export default function StatsCard( {icon, stats, content} ) {
+export default function StatsCard({ icon, stats, content }) {
   return (
-    <div className="py-4 flex justify-center">
-        <div className="p-5">
-          <div className="px-10 ml-10">
-            <h1 className="text-4xl absolute mt-5">{stats}</h1>
-            <Image src={icon} width={50} height={50} className="ml-10"></Image>
-          </div>
-          <p className="mt-3 ">{content}</p>
-        </div>
-        
+    <div className="flex flex-col justify-center">
+      <div className="flex flex-col justify-center items-center relative">
+        <h1 className="text-4xl mt-2">{stats}</h1>
+        <motion.div
+          className="absolute -z-10 bottom-5 right-12"
+          animate={{ scale: [1, 1.1, 1] }}
+          transition={{ duration: 1, repeat: Infinity }}
+        >
+          <Image src={icon} width={50} height={50} className="" />
+        </motion.div>
+      </div>
+      <p className="mt-3 text-center max-w-[200px]">{content}</p>
     </div>
-  )
+  );
 }
