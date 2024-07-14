@@ -7,9 +7,9 @@ export default function StatsCard({ icon, stats, content }) {
   return (
     <div className="flex flex-col justify-center">
       <div className="flex flex-col justify-center items-center relative">
-        <h1 className="text-4xl mt-2">{stats}</h1>
+        <h1 className="text-5xl mt-2">{stats}</h1>
         <motion.div
-          className="absolute -z-10 bottom-5 right-12"
+          className="absolute -z-10 bottom-6 right-8"
           animate={{ scale: [1, 1.1, 1] }}
           transition={{ duration: 1, repeat: Infinity }}
         >
