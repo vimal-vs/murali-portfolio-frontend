@@ -10,8 +10,8 @@ export default function StatsCard({ icon, stats, content }) {
         <h1 className="text-5xl mt-2">{stats}</h1>
         <motion.div
           className="absolute -z-10 bottom-6 right-8"
-          animate={{ scale: [1, 1.1, 1] }}
-          transition={{ duration: 1, repeat: Infinity }}
+          animate={{ scale: [1, 1.25, 1] }}
+          transition={{ duration: 2, repeat: Infinity }}
         >
           <Image src={icon} width={50} height={50} className="" />
         </motion.div>

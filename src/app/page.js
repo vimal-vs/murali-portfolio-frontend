@@ -19,7 +19,7 @@ export default function Home() {
       <AboutMe />
       <div className="flex justify-around mt-10">
         <StatsCard icon={iconHeart} content={"asdfa sdfasd fas dfasd asdfa sdfasd"} stats={"10M"} />
-        <StatsCard icon={iconStar} content={"asdfa sdf asdfas dfasd asdfasdfasd"} stats={"21"} />
+        <StatsCard icon={iconStar} content={"asdfa sdf asdfas dfasd asdfasdfasd"} stats={"21K"} />
         <StatsCard icon={iconTri} content={"asdf asdfasdf asdfasd asdf asdfasd"} stats={"30%"} />
       </div>
       <LandingVideo embedId={"WGvtr4SPGpw?si=7ktQKc03n6e-sfFm"} />

@@ -19,7 +19,7 @@ export default function Seperator({ text, bgColor, textColor }) {
       </div>
       {text === "Want to make an appointment ?" &&
         <div className="flex justify-center pb-4">
-          <Link href="https://www.spotify.com" className="flex justify-center font-medium rounded bg-yellow w-[180px] py-2">Book Now</Link>
+          <Link href="https://www.spotify.com" className="flex justify-center font-medium rounded-xl bg-yellow w-[200px] py-2">Book Now</Link>
         </div>
       }
     </div>
