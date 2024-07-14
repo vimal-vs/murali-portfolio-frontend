@@ -1,15 +1,43 @@
+"use client";
 
-export default function LandingVideo( {embedId} ) {
+import { useEffect, useRef } from 'react';
+import video from "@assets/video.mp4";
+
+export default function LandingVideo() {
+  const videoRef = useRef(null);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            videoRef.current.play().catch((error) => {
+              console.error('Failed to autoplay video:', error);
+            });
+          } else {
+            videoRef.current.pause();
+          }
+        });
+      },
+      { threshold: 0.1 }
+    );
+
+    if (videoRef.current) {
+      observer.observe(videoRef.current);
+    }
+
+    return () => {
+      if (videoRef.current) {
+        observer.unobserve(videoRef.current);
+      }
+    };
+  }, []);
+
   return (
-    <div className="flex justify-center p-10 aspect-w-16 aspect-h-9">
-      <iframe width="560" height="315" 
-      src="https://www.youtube.com/embed/WGvtr4SPGpw?si=7ktQKc03n6e-sfFm" 
-      title="YouTube video player" 
-      frameborder="0" 
-      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
-      referrerpolicy="strict-origin-when-cross-origin" 
-      allowfullscreen>
-      </iframe>
+    <div className="flex justify-center">
+      <video ref={videoRef} className="w-[80%]" controls playsInline muted loop>
+        <source src={video} type="video/mp4" />
+      </video>
     </div>
-  )
+  );
 }
