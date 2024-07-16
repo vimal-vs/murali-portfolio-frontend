@@ -1,15 +1,17 @@
-import DownloadCard from "@/components/reusable/DownloadCard";
+import Downloads from "@components/Downloads";
 import AboutMe from "@/components/AboutMe";
 import StatsCard from "@components/reusable/StatsCard";
-import RecentBlogs from "@components/reusable/RecentBlogs";
+import RecentBlogs from "@components/RecentBlogs";
 import LandingVideo from "@components/LandingVideo.jsx"
 import Seperator from "@components/reusable/Seperator";
-import pic from '../assets/downloadCard_icon_1.svg'
+import TrustedBar from "@components/TrustedBar";
 import iconHeart from '../assets/heart.svg'
 import iconStar from '../assets/star.svg'
 import iconTri from '../assets/triangle.svg'
 import Testimonials from "@components/Testimonials";
 import dynamic from 'next/dynamic';
+import PropsBar from "@components/PropsBar";
+
 
 const MasonryGallery = dynamic(() => import('@components/reusable/MasonryGallery'), { ssr: false });
 
@@ -23,7 +25,9 @@ export default function Home() {
         <StatsCard icon={iconTri} content={"asdf asdfasdf asdfasd asdf asdfasd"} stats={"30%"} />
       </div>
       <LandingVideo embedId={"WGvtr4SPGpw?si=7ktQKc03n6e-sfFm"} />
+      <PropsBar />
       <Seperator text={"Trusted by the best"} bgColor={"#FDC435"} />
+      <TrustedBar />
       <Testimonials />
       <MasonryGallery images={[
         "https://images.unsplash.com/photo-1506748686214-e9df14d4d9d0?w=500&h=300",
@@ -39,7 +43,7 @@ export default function Home() {
       <Seperator text={"My recent blogs"} bgColor={"#fff"} />
       <RecentBlogs />
       <Seperator text={"Want to make an appointment ?"} bgColor={"#8280F2"} />
-      <DownloadCard name={"Media Kit"} icon={pic} link={"https://open.spotify.com/"} bgColor={"#8280F2"} />
+      <Downloads />
     </main>
   );
 }
