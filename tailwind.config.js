@@ -11,6 +11,7 @@ module.exports = {
       },
       fontFamily: {
         satisfy: ['Satisfy', 'cursive'],
+        
       },
     },
   },
