@@ -13,6 +13,7 @@ import dynamic from 'next/dynamic';
 import PropsBar from "@components/PropsBar";
 
 
+
 const MasonryGallery = dynamic(() => import('@components/reusable/MasonryGallery'), { ssr: false });
 
 export default function Home() {

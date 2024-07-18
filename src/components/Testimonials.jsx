@@ -1,45 +1,23 @@
+"use client"
+
 import Marquee from "react-fast-marquee";
 import TestimonialCard from "./reusable/TestimonialCard";
 import Seperator from "./reusable/Seperator";
+import { useState, useEffect } from "react";
+import { getAllTestimonials } from "@actions/testimonials";
 
 export default function Testimonials() {
-    const data = [
-        {
-            name: "John Doe",
-            designation: "Student",
-            content: "asdf asdfasdf asdf asdfakjsdfhas adfkajsdhf dsf !!"
-        },
-        {
-            name: "John Doe",
-            designation: "Student",
-            content: "asdf asdfasdf asdf asdfakjsdfhas adfkajsdhf dsf !!"
-        },
-        {
-            name: "John Doe",
-            designation: "Student",
-            content: "asdf asdfasdf asdf asdfakjsdfhas adfkajsdhf dsf !!"
-        },
-        {
-            name: "John Doe",
-            designation: "Student",
-            content: "asdf asdfasdf asdf asdfakjsdfhas adfkajsdhf dsf !!"
-        },
-        {
-            name: "John Doe",
-            designation: "Student",
-            content: "asdf asdfasdf asdf asdfakjsdfhas adfkajsdhf dsf !!"
-        },
-        {
-            name: "John Doe",
-            designation: "Student",
-            content: "asdf asdfasdf asdf asdfakjsdfhas adfkajsdhf dsf !!"
-        },
-        {
-            name: "John Doe",
-            designation: "Student",
-            content: "asdf asdfasdf asdf asdfakjsdfhas adfkajsdhf dsf !!"
-        },
-    ];
+
+    const [testimonials, setTestimonials] = useState([]);
+
+    useEffect(() => {
+        const fetchData = async() => {
+          const data = await getAllTestimonials();
+          console.log(data)
+          setTestimonials(data)
+        } 
+        fetchData()
+      },[])
 
     return (
         <div>
@@ -49,7 +27,7 @@ export default function Testimonials() {
                 pauseOnClick
                 speed={40}
             >
-                {data.map((item, index) =>
+                {testimonials?.map((item, index) =>
                     <div className="ml-6">
                         <TestimonialCard key={index} name={item.name} designation={item.designation} content={item.content} />
                     </div>

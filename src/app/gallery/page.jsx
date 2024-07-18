@@ -1,6 +1,7 @@
 import top from "@assets/secPagesTop.svg"
-import Image from "next/image"
 import Gallery from "@components/Gallery"
+import Image from "next/image"
+
 
 export default function page() {
   return (

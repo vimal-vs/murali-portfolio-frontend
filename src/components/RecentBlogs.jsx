@@ -1,12 +1,29 @@
+"use client"
+
 import RecentBlogsCard from "@components/reusable/RecentBlogsCard";
 import filler from '@assets/fillerImg.svg'
+import { useEffect, useState } from "react";
+import { getAllBlogs } from "@actions/blogs"
 
 export default function RecentBlogs() {
+
+  const [Blogs, setBlogs] = useState([]);
+  
+  useEffect(() => {
+    const fetchData = async() => {
+      const data = await getAllBlogs();
+      console.log(data)
+      setBlogs(data)
+    } 
+    fetchData()
+  },[])
+
   return (
     <div className="gap-2">
-        <RecentBlogsCard thumbnail = {filler} title={"Title Goes Here"} content ={"Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quis veritatis repellendus illum quo consequuntur fugit aperiam. Reprehenderit veritatis inventore voluptatum fugiat tempora tenetur repellat! Cum consequatur doloremque et quia ex?"} bgColor = {"#516470"}/>
-        <RecentBlogsCard thumbnail = {filler} title={"Title Goes Here"} content ={"Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quis veritatis repellendus illum quo consequuntur fugit aperiam. Reprehenderit veritatis inventore voluptatum fugiat tempora tenetur repellat! Cum consequatur doloremque et quia ex?"} bgColor = {"#b4bec0"}/>
-        <RecentBlogsCard thumbnail = {filler} title={"Title Goes Here"} content ={"Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quis veritatis repellendus illum quo consequuntur fugit aperiam. Reprehenderit veritatis inventore voluptatum fugiat tempora tenetur repellat! Cum consequatur doloremque et quia ex?"} bgColor = {"#516470"}/>
+        {Blogs?.map((item, index) =>
+          <div>
+            <RecentBlogsCard key={index} thumbnail = {filler} title={item.title} content ={item.content} bgColor = {"#516470"}/>
+          </div>)}
     </div>
   )
 }
