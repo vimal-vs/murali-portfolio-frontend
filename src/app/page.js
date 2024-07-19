@@ -11,6 +11,7 @@ import iconTri from '../assets/triangle.svg'
 import Testimonials from "@components/Testimonials";
 import dynamic from 'next/dynamic';
 import PropsBar from "@components/PropsBar";
+import MyPodcasts from "@components/MyPodcasts";
 
 
 
@@ -43,6 +44,7 @@ export default function Home() {
       ]} />
       <Seperator text={"My recent blogs"} bgColor={"#fff"} />
       <RecentBlogs />
+      <MyPodcasts />
       <Seperator text={"Want to make an appointment ?"} bgColor={"#8280F2"} />
       <Downloads />
     </main>
