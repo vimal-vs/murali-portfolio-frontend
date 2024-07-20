@@ -35,7 +35,7 @@ export default function MyPodcasts() {
                 {Podcasts?.map((item, index) =>
                     <div className="ml-6">
                         <iframe 
-                            width="540" 
+                            width="540"
                             height="295" 
                             src={item.url} 
                             title="YouTube video player" 
