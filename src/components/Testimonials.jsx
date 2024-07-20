@@ -2,7 +2,7 @@
 
 import Marquee from "react-fast-marquee";
 import TestimonialCard from "./reusable/TestimonialCard";
-import Seperator from "./reusable/Seperator";
+import Seperator from "./reusable/Separator";
 import { useState, useEffect } from "react";
 import { getAllTestimonials } from "@actions/testimonials";
 

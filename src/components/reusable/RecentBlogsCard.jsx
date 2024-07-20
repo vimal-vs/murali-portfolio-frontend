@@ -5,18 +5,18 @@ import Link from 'next/link'
 export default function RecentBlogsCard( {thumbnail, title, content, bgColor} ) {
   return (
     <div className="p-5 flex justify-center">
-        <div className="block px-4 py-2 rounded-3xl border flex justify-self-end" style={ {backgroundColor: bgColor} }>
-          <Image src={thumbnail} className="pb-4"/>
-          <div> 
-            <h1 class="mb-2 text-4xl font-bold px-8 mt-5">{title}</h1>
-            <p className=" font-normal text-lg px-5 mt-9 mb-0">{content}</p>
+      <a href="#" className={"flex flex-col items-center bg-gray-400 border border-gray-200 rounded-lg md:flex-row hover:bg-gray-400"}>
+        <img className="object-none object-scale-down rounded-t-lg h-96 md:rounded-none md:rounded-s-lg px-4 py-6" src={thumbnail} alt=""></img>
+        <div className="flex flex-col justify-between p-4 leading-normal">
+            <h5 className="mb-2 text-2xl font-bold tracking-tight">{title}</h5>
+            <p className="mb-3 font-normal">{content}</p>
             <div className='flex justify-end gap-5 mt-4'>
-            <Link href='https://www.spotify.com'>Continue reading</Link>
-            <Image src={arrow}></Image>
-          </div>
-          </div>
-          
+              <Link href='https://www.spotify.com'>Continue reading</Link>
+              <Image src={arrow}></Image>
+            </div>
         </div>
+      </a>
+
     </div>
   )
 }

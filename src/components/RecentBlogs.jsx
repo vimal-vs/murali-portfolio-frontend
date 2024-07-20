@@ -22,7 +22,7 @@ export default function RecentBlogs() {
     <div className="gap-2">
         {Blogs?.map((item, index) =>
           <div>
-            <RecentBlogsCard key={index} thumbnail = {filler} title={item.title} content ={item.content} bgColor = {"#516470"}/>
+            <RecentBlogsCard key={index} thumbnail = {item.imageUrl} title={item.title} content ={item.content} bgColor = {"#516470"}/>
           </div>)}
     </div>
   )
