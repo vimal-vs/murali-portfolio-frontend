@@ -5,8 +5,8 @@ import Blogs from "@components/Blogs"
 export default function page() {
   return (
     <div className="relative">
-      <Image src={top} className="size-full"/>
-        <Blogs/>
+      <Image src={top} alt="logo" className="size-full" />
+      <Blogs />
     </div>
   )
 }

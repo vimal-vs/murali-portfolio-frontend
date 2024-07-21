@@ -8,9 +8,13 @@ import footer_vector from "@/assets/footer_yellow.svg"
 import close from "@/assets/close.svg"
 import Image from 'next/image';
 import { useState } from 'react';
+import { useCommonContext } from '@contexts/CommonContext';
 
 export default function Footer() {
     const [closeWhatsappPopup, setCloseWhatsappPopup] = useState(false);
+
+    const footerData = useCommonContext()?.data?.footer;
+    const LinksData = useCommonContext()?.data?.links;
 
     return (
         <>
@@ -27,17 +31,16 @@ export default function Footer() {
                             <div className="space-y-5">
                                 <div className="flex items-center">
                                     <FaEnvelope className="mr-2" />
-                                    <a href="mailto:hi@connectmurali.com">hi@connectmurali.com</a>
+                                    <a href="mailto:hi@connectmurali.com">{footerData?.email}</a>
                                 </div>
                                 <div className="flex items-center">
                                     <FaPhoneAlt className="mr-2" />
-                                    <span>+91 13245 13245</span>
+                                    <span>{footerData?.contactNumber}</span>
                                 </div>
                                 <div className="flex items-center">
                                     <FaMapMarkerAlt className="mr-2" />
-                                    <address>
-                                        18 A/2, 5th Street, Sivanthi Nagar,<br />
-                                        Tirunelveli, Tamilnadu, India - 627001
+                                    <address className='max-w-[300px]'>
+                                        {footerData?.address}
                                     </address>
                                 </div>
                             </div>
@@ -49,12 +52,12 @@ export default function Footer() {
                             transition={{ duration: 0.5, delay: 0.2 }}
                         >
                             <div className="flex md:grid md:grid-cols-2 justify-center items-center gap-6">
-                                <a href="#" className="text-2xl"><FaFacebookF /></a>
-                                <a href="#" className="text-2xl"><FaYoutube /></a>
-                                <a href="#" className="text-2xl"><FaInstagram /></a>
-                                <a href="#" className="text-2xl"><FaLinkedinIn /></a>
-                                <a href="#" className="text-2xl"><FaTwitter /></a>
-                                <a href="#" className="text-2xl"><FaWhatsapp /></a>
+                                <a href={LinksData?.facebook} className="text-2xl"><FaFacebookF /></a>
+                                <a href={LinksData?.youtube} className="text-2xl"><FaYoutube /></a>
+                                <a href={LinksData?.instagram} className="text-2xl"><FaInstagram /></a>
+                                <a href={LinksData?.linkedin} className="text-2xl"><FaLinkedinIn /></a>
+                                <a href={LinksData?.twitter} className="text-2xl"><FaTwitter /></a>
+                                <a href={LinksData?.whatsapp} className="text-2xl"><FaWhatsapp /></a>
                             </div>
                         </motion.div>
                     </div>
@@ -74,11 +77,11 @@ export default function Footer() {
                         </ul>
                     </motion.div>
                 </div>
-                <Image src={footer_vector} className='absolute w-screen left-0 -mt-20 h-[120px] object-cover' />
+                <Image src={footer_vector} alt="logo" className='absolute w-screen left-0 -mt-20 h-[120px] object-cover' />
             </footer>
             {closeWhatsappPopup === false && (
                 <FloatingWhatsApp
-                    phoneNumber="+911231231231"
+                    phoneNumber={footerData?.phoneNumber}
                     accountName="Murali Dharan R"
                     statusMessage="Available"
                     chatMessage='Hey there, want to connect?'
@@ -86,7 +89,7 @@ export default function Footer() {
                     notificationDelay={5}
                 />
             )}
-            {closeWhatsappPopup === false && (<button className="text-xl bg-white rounded-full font-semibold fixed z-10 bottom-20 right-[0.6rem]" onClick={() => { setCloseWhatsappPopup(true) }}><Image src={close} className='size-5' />
+            {closeWhatsappPopup === false && (<button className="text-xl bg-white rounded-full font-semibold fixed z-10 bottom-20 right-[0.6rem]" onClick={() => { setCloseWhatsappPopup(true) }}><Image src={close} alt="logo" className='size-5' />
             </button>)}
         </>
     );

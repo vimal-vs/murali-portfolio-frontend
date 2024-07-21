@@ -13,7 +13,7 @@ export default function StatsCard({ icon, stats, content }) {
           animate={{ scale: [1, 1.25, 1] }}
           transition={{ duration: 2, repeat: Infinity }}
         >
-          <Image src={icon} width={50} height={50} className="" />
+          <Image src={icon} alt="logo" width={50} height={50} className="" />
         </motion.div>
       </div>
       <p className="mt-3 text-center max-w-[200px]">{content}</p>

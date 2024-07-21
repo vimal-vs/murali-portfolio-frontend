@@ -7,10 +7,10 @@ import trusted4 from "@assets/trusted4.svg"
 export default function TrustedBar() {
   return (
     <div className="flex justify-around">
-        <Image src = {trusted1}></Image>
-        <Image src = {trusted2}></Image>
-        <Image src = {trusted3}></Image>
-        <Image src = {trusted4}></Image>
+      <Image src={trusted1} alt="logo"></Image>
+      <Image src={trusted2} alt="logo"></Image>
+      <Image src={trusted3} alt="logo"></Image>
+      <Image src={trusted4} alt="logo"></Image>
     </div>
   )
 }

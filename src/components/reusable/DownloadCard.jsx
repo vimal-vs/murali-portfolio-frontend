@@ -10,10 +10,10 @@ export default function DownloadCard({ name, bgColor, icon, link, textColor }) {
         <h1 className="text-xl m-4 ">{name}</h1>
         <div className="mt-10">
           <Link href={link} type="button" className="absolute ml-9 mt-1">Click Here</Link>
-          <Image src={Circle} width={30} height={30} className="absolute" />
-          <Image src={Arrow} width={17} height={15} className="absolute m-2" />
+          <Image src={Circle} alt="logo" width={30} height={30} className="absolute" />
+          <Image src={Arrow} alt="logo" width={17} height={15} className="absolute m-2" />
         </div>
-        <Image src={icon} width={150} height={150} className="pr-13" />
+        <Image src={icon} alt="logo" width={150} height={150} className="pr-13" />
       </div>
     </div>
   )

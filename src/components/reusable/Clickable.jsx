@@ -10,7 +10,7 @@ export default function Clickable({ text }) {
   return (
     <div className="flex justify-end">
       <Link href={"#"} className={cn(satisfy.className, "text-3xl p-2 flex gap-4 justify-center underline decoration-[#FDC435]")}>{text}</Link>
-      <Image src={arrow} className="size-15"></Image>
+      <Image src={arrow} alt="logo" className="size-15"></Image>
     </div>
   )
 }

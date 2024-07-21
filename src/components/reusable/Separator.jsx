@@ -13,9 +13,9 @@ export default function Seperator({ text, bgColor, textColor }) {
     <div className="p-3" style={{ backgroundColor: bgColor }}>
       <div className="flex justify-center">
         <h1 className={cn(satisfy.className, "text-[3.50rem] p-2 flex gap-4")}>{text}</h1>
-        {text === "Trusted by the best" && <Image src={star} className="mb-12"></Image>}
-        {text === "Customer Testimonials" && <Image src={diamond} className="mb-12"></Image>}
-        {text === "My recent blogs" && <Image src={bookmark} className="mb-12"></Image>}
+        {text === "Trusted by the best" && <Image src={star} alt="logo" className="mb-12"></Image>}
+        {text === "Customer Testimonials" && <Image src={diamond} alt="logo" className="mb-12"></Image>}
+        {text === "My recent blogs" && <Image src={bookmark} alt="logo" className="mb-12"></Image>}
       </div>
       {text === "Want to make an appointment ?" &&
         <div className="flex justify-center pb-4">
