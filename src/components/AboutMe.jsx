@@ -11,7 +11,6 @@ const satisfy = Satisfy({ subsets: ["latin"], weight: "400" });
 
 export default function AboutMe() {
     const landingData = useCommonContext()?.data?.landing;
-    console.log(landingData);
     return (
         <div className="pl-10">
             <div className="hidden md:flex justify-end">

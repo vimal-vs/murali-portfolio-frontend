@@ -11,18 +11,17 @@ import { useEffect, useState } from "react"
 const novamono = Nova_Mono({ weight: '400', subsets: ['latin'] })
 
 export default function Gallery() {
-  
+
   const [Events, setEvents] = useState([]);
-  
+
   useEffect(() => {
-    const fetchData = async() => {
+    const fetchData = async () => {
       const data = await getAllEvents();
-      console.log(data)
       setEvents(data)
-    } 
+    }
     fetchData()
-  },[])
-  
+  }, [])
+
   return (
     <div>
       <div className="absolute inset-20 z-10">

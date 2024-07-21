@@ -11,13 +11,12 @@ export default function Testimonials() {
     const [testimonials, setTestimonials] = useState([]);
 
     useEffect(() => {
-        const fetchData = async() => {
-          const data = await getAllTestimonials();
-          console.log(data)
-          setTestimonials(data)
-        } 
+        const fetchData = async () => {
+            const data = await getAllTestimonials();
+            setTestimonials(data)
+        }
         fetchData()
-      },[])
+    }, [])
 
     return (
         <div>
