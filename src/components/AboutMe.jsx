@@ -34,7 +34,7 @@ export default function AboutMe() {
                     <p>{landingData?.subHeader}</p>
                 </div>
                 <div>
-                    <p className="text-3xl py-7 break-inside-avoid-column">
+                    <p className="text-3xl py-7 max-w-[500px]">
                         {landingData?.shortText}
                     </p>
                 </div>

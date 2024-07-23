@@ -9,10 +9,10 @@ import { useCommonContext } from '@contexts/CommonContext';
 export default function Statistics() {
     const statsData = useCommonContext()?.data?.landing;
     return (
-        <div className="flex justify-around mt-10">
+        <div className="flex flex-col md:flex-row justify-around mt-10">
             <StatsCard icon={iconHeart} content={statsData?.stat1content} stats={statsData?.stat1} />
             <StatsCard icon={iconStar} content={statsData?.stat2content} stats={statsData?.stat2} />
-            <StatsCard icon={iconTri} content={statsData?.stat3content} stats={statsData?.stat3} />
+            <StatsCard marginLeft icon={iconTri} content={statsData?.stat3content} stats={statsData?.stat3} />
         </div>
     )
 }
