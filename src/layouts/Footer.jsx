@@ -21,7 +21,7 @@ export default function Footer() {
             <footer className="bg-white text-black p-8 mt-8 border-t-2 border-black">
                 <h2 className="text-2xl md:text-5xl font-bold flex gap-2 tracking-wide">Let us stay<span className="text-purple">CONNECT</span>ed</h2>
                 <div className="mt-6 md:mt-0 flex flex-col lg:flex-row justify-between md:items-center pb-6">
-                    <div className='md:w-2/4 flex justify-between items-center'>
+                    <div className='md:w-2/4 flex flex-col md:flex-row justify-between md:items-center'>
                         <motion.div
                             className="flex flex-col gap-4"
                             initial={{ opacity: 0, y: 50 }}

@@ -23,18 +23,18 @@ export default function MyPodcasts() {
     }, []);
 
     return (
-        <div className="flex justify-start relative">
-            <Image src={leftImg} alt="Left Image" />
+        <div className="flex justify-start relative mb-10">
+            <Image src={leftImg} alt="Left Image" className="hidden md:block" />
             <div className="flex flex-col w-full">
                 <h1 className={cn(satisfy.className, "text-[3.50rem] w-full text-center")}>
                     My Podcasts
                 </h1>
-                <div className="grid grid-cols-2 gap-2 -ml-20 mt-10 ">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-2 md:-ml-20 mt-10 ">
                     {podcasts?.map((item, index) => (
                         <div key={index} className="ml-6">
                             <iframe
-                                width="400"
-                                height="250"
+                                width="350"
+                                height="200"
                                 src={getEmbedUrl(item.url)}
                                 title={`YouTube video player ${index}`}
                                 frameBorder="0"
@@ -45,8 +45,8 @@ export default function MyPodcasts() {
                         </div>
                     ))}
                 </div>
-                <div className="flex justify-end">
-                    <Clickable text="View all podcasts" url="/podcasts"/>
+                <div className="flex justify-end mt-3">
+                    <Clickable text="View all podcasts" url="/podcasts" />
                 </div>
             </div>
         </div>

@@ -21,7 +21,7 @@ export default function Props({ icon, text }) {
       <motion.div animate={infiniteAnimation}>
         <Image src={icon} alt="logo" className="size-20" />
       </motion.div>
-      <p>{text}</p>
+      <p className="text-center">{text}</p>
     </motion.div>
   );
 }

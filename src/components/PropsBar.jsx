@@ -27,7 +27,7 @@ export default function PropsBar() {
   return (
     <motion.div
       ref={ref}
-      className="flex justify-around items-center mt-8"
+      className="grid grid-cols-2 gap-y-6 md:flex md:justify-around items-center my-20"
       variants={containerVariants}
       initial="hidden"
       animate={inView ? "visible" : "hidden"}

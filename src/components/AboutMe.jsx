@@ -1,6 +1,7 @@
 "use client";
 import Image from "next/image"
 import bg from "@/assets/image.svg"
+import bgForMobile from "@/assets/image.svg"
 import { Typewriter } from 'react-simple-typewriter'
 import { Satisfy } from "next/font/google";
 import { cn } from "@/utils/cn";
@@ -12,12 +13,12 @@ const satisfy = Satisfy({ subsets: ["latin"], weight: "400" });
 export default function AboutMe() {
     const landingData = useCommonContext()?.data?.landing;
     return (
-        <div className="pl-10">
+        <div className="pl-6 md:pl-10">
             <div className="hidden md:flex justify-end">
                 <Image src={bg} alt="logo" width={600} height={600} className="absolute -top-3"></Image>
             </div>
             <div className="space-y-4 md:-mt-14">
-                <h1 className={cn(satisfy.className, "text-[4.75rem] pt-20 flex gap-4")}>Murali Dharan <p className="-mt-1">R.</p></h1>
+                <h1 className={cn(satisfy.className, "text-5xl md:text-[4.75rem] pt-8 md:pt-20 flex gap-4")}>Murali Dharan <p className="-mt-1">R.</p></h1>
                 {/* <VaraText text="Murali Dharan R." /> */}
                 <div className="font-bold text-xl text-purple">
                     <Typewriter
@@ -32,6 +33,9 @@ export default function AboutMe() {
                         delaySpeed={2000}
                     />
                     <p>{landingData?.subHeader}</p>
+                </div>
+                <div className="flex md:hidden justify-end">
+                    <Image src={bgForMobile} alt="logo" width={600} height={600} className=""></Image>
                 </div>
                 <div>
                     <p className="text-3xl py-7 max-w-[500px]">

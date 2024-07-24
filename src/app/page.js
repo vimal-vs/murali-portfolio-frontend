@@ -15,7 +15,7 @@ const MasonryGallery = dynamic(() => import('@components/reusable/MasonryGallery
 
 export default function Home() {
   return (
-    <main className="flex flex-col gap-20">
+    <main className="flex flex-col">
       <AboutMe />
       <Statistics />
       <LandingVideo embedId={"WGvtr4SPGpw?si=7ktQKc03n6e-sfFm"} />
@@ -23,9 +23,9 @@ export default function Home() {
       <Separator text={"Trusted by the best"} bgColor={"#FDC435"} />
       <TrustedBar />
       <Testimonials />
-      <div className="flex flex-col gap-5">
-        <MasonryGallery />  
-        <Clickable text="View Gallery" url="/gallery"/>
+      <div className="flex flex-col gap-5 my-16">
+        <MasonryGallery />
+        <Clickable text="View Gallery" url="/gallery" />
       </div>
       <Separator text={"My recent blogs"} bgColor={"#fff"} />
       <RecentBlogs />

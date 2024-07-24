@@ -17,16 +17,16 @@ export default function RecentBlogs() {
   }, [])
 
   return (
-    <div className="bg-gray-300 px-2 py-10">
+    <div className="px-2">
       {Blogs?.map((item, index) =>
         <div>
-          <RecentBlogsCard 
-          key={index} 
-          thumbnail={item.imageUrl} 
-          title={item.title}
-          content={item.content.substring(0, 150) + '...'} 
-          date={item.date} u
-          rl={item.link}/>
+          <RecentBlogsCard
+            key={index}
+            thumbnail={item.imageUrl}
+            title={item.title}
+            content={item.content.substring(0, 150) + '...'}
+            date={item.date} u
+            rl={item.link} />
         </div>)}
     </div>
 

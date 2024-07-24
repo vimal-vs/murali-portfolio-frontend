@@ -19,7 +19,7 @@ export default function Testimonials() {
     }, [])
 
     return (
-        <div>
+        <div className="mt-6 md:mt-10">
             <Seperator text={"Customer Testimonials"} bgColor={"#fff"} />
             <Marquee
                 pauseOnHover
@@ -27,7 +27,7 @@ export default function Testimonials() {
                 speed={40}
             >
                 {testimonials?.map((item, index) =>
-                    <div className="ml-6">
+                    <div className="ml-6 mt-3">
                         <TestimonialCard key={index} name={item.name} designation={item.designation} content={item.content} />
                     </div>
                 )}
