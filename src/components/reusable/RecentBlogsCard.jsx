@@ -2,22 +2,23 @@ import arrow from '@assets/arrow_2.svg'
 import Image from 'next/image'
 import Link from 'next/link'
 
-export default function RecentBlogsCard({ thumbnail, title, content, bgColor }) {
+export default function RecentBlogsCard({ thumbnail, title, content, date, url }) {
   return (
-    <div className="p-5 flex justify-center">
-      <div className={"flex flex-col items-center bg-gray-400 border border-gray-200 rounded-lg md:flex-row hover:bg-gray-400"}>
-        <img className="object-none rounded-t-lg h-96 md:rounded-none md:rounded-s-lg px-4 py-6" src={thumbnail} alt=""></img>
-        <div className="flex flex-col justify-between p-4 leading-normal">
-          <h5 className="mb-2 text-2xl font-bold tracking-tight">{title}</h5>
-          <p className="mb-3 font-normal">{content}</p>
-          <div className='flex justify-end gap-5 mt-4'>
-            <Link href='https://www.spotify.com'>Continue reading</Link>
-            <Image src={arrow} alt="logo"></Image>
-          </div>
+      <article class="mx-auto my-10 flex max-w-md flex-col rounded-2xl bg-white px-4 shadow md:max-w-5xl md:flex-row md:items-center hover:bg-[#FDC435]">
+      <div class="shrink-0 my-4 md:mr-8 md:max-w-sm">
+        <img class="rounded-2xl" src={thumbnail} alt="Cover Image"/>
+      </div>
+      <div class="py-4 sm:py-8">
+        <a href={`${url}`} class="mb-6 block text-2xl font-medium text-gray-700">{title}</a>
+        <p class="mb-6 text-gray-500">{content}</p>
+        <div class="flex">
+          <p class="w-56">
+            <span class="text-sm text-gray-400">{date}</span>
+          </p>
         </div>
       </div>
-
-    </div>
+      </article>
+    
   )
 }
 

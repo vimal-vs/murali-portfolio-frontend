@@ -23,8 +23,10 @@ export default function Home() {
       <Separator text={"Trusted by the best"} bgColor={"#FDC435"} />
       <TrustedBar />
       <Testimonials />
-      <MasonryGallery />
-      <Clickable text="View Gallery" />
+      <div className="flex flex-col gap-5">
+        <MasonryGallery />  
+        <Clickable text="View Gallery" url="/gallery"/>
+      </div>
       <Separator text={"My recent blogs"} bgColor={"#fff"} />
       <RecentBlogs />
       <MyPodcasts />

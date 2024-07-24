@@ -1,7 +1,6 @@
 "use client"
 
 import RecentBlogsCard from "@components/reusable/RecentBlogsCard";
-import filler from '@assets/fillerImg.svg'
 import { useEffect, useState } from "react";
 import { getAllBlogs } from "@actions/blogs"
 
@@ -18,11 +17,19 @@ export default function RecentBlogs() {
   }, [])
 
   return (
-    <div className="gap-2">
+    <div className="bg-gray-300 px-2 py-10">
       {Blogs?.map((item, index) =>
         <div>
-          <RecentBlogsCard key={index} thumbnail={item.imageUrl} title={item.title} content={item.content} bgColor={"#516470"} />
+          <RecentBlogsCard 
+          key={index} 
+          thumbnail={item.imageUrl} 
+          title={item.title}
+          content={item.content.substring(0, 150) + '...'} 
+          date={item.date} u
+          rl={item.link}/>
         </div>)}
     </div>
+
+
   )
 }

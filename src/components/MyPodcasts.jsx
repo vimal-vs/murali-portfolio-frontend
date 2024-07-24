@@ -7,21 +7,9 @@ import Image from "next/image";
 import Clickable from "./reusable/Clickable";
 import { getAllPodcasts } from "@actions/podcasts";
 import { useEffect, useState } from "react";
+import getEmbedUrl from "./reusable/EmbedUrl";
 
 const satisfy = Satisfy({ subsets: ["latin"], weight: "400" });
-
-const getEmbedUrl = (url) => {
-    const urlObj = new URL(url);
-    let videoId = '';
-
-    if (urlObj.hostname === 'www.youtube.com' && urlObj.pathname === '/watch') {
-        videoId = urlObj.searchParams.get('v');
-    } else if (urlObj.hostname === 'youtu.be') {
-        videoId = urlObj.pathname.slice(1);
-    }
-
-    return `https://www.youtube.com/embed/${videoId}`;
-};
 
 export default function MyPodcasts() {
     const [podcasts, setPodcasts] = useState([]);
@@ -37,11 +25,11 @@ export default function MyPodcasts() {
     return (
         <div className="flex justify-start relative">
             <Image src={leftImg} alt="Left Image" />
-            <div className="w-full">
+            <div className="flex flex-col w-full">
                 <h1 className={cn(satisfy.className, "text-[3.50rem] w-full text-center")}>
                     My Podcasts
                 </h1>
-                <div className="grid grid-cols-2 gap-2 -ml-20 mt-10 absolute ">
+                <div className="grid grid-cols-2 gap-2 -ml-20 mt-10 ">
                     {podcasts?.map((item, index) => (
                         <div key={index} className="ml-6">
                             <iframe
@@ -56,7 +44,9 @@ export default function MyPodcasts() {
                             ></iframe>
                         </div>
                     ))}
-                    <Clickable text="View all podcasts" />
+                </div>
+                <div className="flex justify-end">
+                    <Clickable text="View all podcasts" url="/podcasts"/>
                 </div>
             </div>
         </div>
