@@ -11,11 +11,11 @@ export default function LandingVideo() {
       (entries) => {
         entries.forEach(entry => {
           if (entry.isIntersecting) {
-            videoRef.current.play().catch((error) => {
+            videoRef.current?.play().catch((error) => {
               console.error('Failed to autoplay video:', error);
             });
           } else {
-            videoRef.current.pause();
+            videoRef.current?.pause();
           }
         });
       },

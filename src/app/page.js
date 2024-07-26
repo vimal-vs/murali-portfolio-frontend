@@ -23,7 +23,7 @@ export default function Home() {
       <Separator text={"Trusted by the best"} bgColor={"#FDC435"} />
       <TrustedBar />
       <Testimonials />
-      <div className="flex flex-col gap-5 my-16">
+      <div className="flex flex-col gap-5 mt-16">
         <MasonryGallery />
         <Clickable text="View Gallery" url="/gallery" />
       </div>

@@ -1,6 +1,8 @@
 "use client";
 import { createContext, useContext, useEffect, useState } from 'react';
 import axios from 'axios';
+import { AnimatePresence, motion } from 'framer-motion';
+import Loader from '@/components/Loader';
 
 const CommonContext = createContext();
 
@@ -9,7 +11,7 @@ export const useCommonContext = () => {
 };
 
 export const CommonProvider = ({ children }) => {
-    const [data, setData] = useState([]);
+    const [data, setData] = useState(null);
     const [loading, setLoading] = useState(true);
 
     const fetchData = async () => {
@@ -29,7 +31,21 @@ export const CommonProvider = ({ children }) => {
 
     return (
         <CommonContext.Provider value={{ data, loading }}>
-            {children}
+            <AnimatePresence mode="wait">
+                {loading ? (
+                    <Loader key="loader" />
+                ) : (
+                    <motion.div
+                        key="content"
+                        initial={{ opacity: 0 }}
+                        animate={{ opacity: 1 }}
+                        exit={{ opacity: 0 }}
+                        transition={{ duration: 0.5 }}
+                    >
+                        {children}
+                    </motion.div>
+                )}
+            </AnimatePresence>
         </CommonContext.Provider>
     );
 };

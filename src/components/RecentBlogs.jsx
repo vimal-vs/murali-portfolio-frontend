@@ -17,7 +17,7 @@ export default function RecentBlogs() {
   }, [])
 
   return (
-    <div className="px-2">
+    <div className="mt-6">
       {Blogs?.map((item, index) =>
         <div>
           <RecentBlogsCard
