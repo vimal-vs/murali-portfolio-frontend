@@ -84,7 +84,7 @@ export default function Footer() {
                             className="flex md:justify-center mt-8 lg:mt-0"
                             variants={staggerItem}
                         >
-                            <motion.div className="flex md:grid md:grid-cols-2 justify-center items-center gap-6">
+                            <motion.div className="flex md:grid md:grid-cols-2 justify-center items-center gap-8">
                                 {LinksData && Object.keys(LinksData).map((key, index) => (
                                     <motion.a
                                         key={index}
@@ -103,8 +103,9 @@ export default function Footer() {
                             </motion.div>
                         </motion.div>
                     </div>
+                    <div className='hidden md:block h-[220px] ml-auto bg-black w-0.5'></div>
                     <motion.div
-                        className="flex flex-col mt-8 md:mt-0 md:w-[2/4] md:mr-12"
+                        className="flex flex-col mt-8 md:mt-0 md:w-[2/4] md:mx-auto"
                         variants={staggerItem}
                     >
                         <h3 className="text-2xl font-bold">Quick <span className="text-purple">Links</span></h3>

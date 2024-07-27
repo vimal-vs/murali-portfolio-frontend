@@ -57,7 +57,7 @@ export default function MyPodcasts() {
                     removeArrowOnDeviceType={["tablet", "mobile"]}
                     dotListClass="custom-dot-list-style"
                     itemClass="carousel-item-padding-40-px"
-                    className="pl-32"
+                    className="pl-40"
                 >
                     {podcasts?.map((item, index) => (
                         <div key={index} className="bg-white border border-gray-200 rounded-lg shadow-md m-4 text-center h-[450px] max-w-[500px]">

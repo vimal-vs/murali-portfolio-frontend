@@ -34,13 +34,13 @@ export default function Header() {
   return (
     <>
       <motion.nav
-        className={`fixed top-0 left-0 w-full z-[9999] flex justify-between items-center pr-8 transition-colors duration-300 ${isScrolled ? 'bg-white text-black shadow-md' : 'bg-transparent text-white pt-1'}`}
+        className={`fixed top-0 left-0 w-full z-[9999] flex justify-between items-center md:pr-8 transition-colors duration-300 ${isScrolled ? 'bg-white text-black shadow-md' : 'bg-transparent text-white pt-1'}`}
         initial={{ y: -100 }}
         animate={{ y: 0 }}
         transition={{ duration: 0.3, ease: "easeOut" }}
       >
         <motion.h1
-          className="hidden md:block text-2xl font-medium px-7"
+          className="text-2xl font-medium md:px-7"
           initial={{ opacity: 0.4, scale: 0.8 }}
           animate={{
             opacity: isScrolled ? 1 : 0,
@@ -54,7 +54,7 @@ export default function Header() {
           {isScrolled && (
             <Link href={"/"} className={cn(satisfy.className, "flex items-center")}>
               <Image src={logo} className="size-16" />
-              <p className="text-3xl">uralidharan</p>
+              <p className="text-3xl hidden md:block">uralidharan</p>
             </Link>
           )}
         </motion.h1>
@@ -63,7 +63,7 @@ export default function Header() {
             <Link
               key={item.href}
               href={item.href}
-              className={`px-7 py-4 text-lg transition-colors duration-300 ${isScrolled ? "hover:text-purple text-black" : "hover:text-yellow text-white"} ${router.pathname === item.href && 'text-yellow'}`}
+              className={`px-3 md:px-7 py-4 text-lg transition-colors duration-300 ${isScrolled ? "hover:text-purple text-black" : "hover:text-yellow text-white hidden md:block"} ${router.pathname === item.href && 'text-yellow'}`}
             >
               {item.label}
             </Link>

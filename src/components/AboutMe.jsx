@@ -1,6 +1,7 @@
 "use client";
 import Image from "next/image";
 import bg from "@/assets/image.svg";
+import image_nobg from "@/assets/image_nobg.png";
 import bgForMobile from "@/assets/image.svg";
 import { Typewriter } from 'react-simple-typewriter';
 import { Satisfy } from "next/font/google";
@@ -59,8 +60,8 @@ export default function AboutMe() {
                     />
                     <p>{landingData?.subHeader}</p>
                 </motion.div>
-                <motion.div className="flex md:hidden justify-end" variants={fadeInFromBottom}>
-                    <Image src={bgForMobile} alt="logo" width={600} height={600} className="" />
+                <motion.div className="flex md:hidden justify-self-center" variants={fadeInFromBottom}>
+                    <Image src={image_nobg} alt="logo" width={300} height={300} className="" />
                 </motion.div>
                 <motion.div variants={fadeInFromBottom}>
                     <p className="text-3xl py-7 max-w-[500px]">
@@ -72,8 +73,11 @@ export default function AboutMe() {
                     <Link href={""} className="rounded bg-sm bg-purple text-white px-5 py-2">Contact</Link>
                 </motion.div>
             </motion.div>
-            <motion.div className="hidden md:flex justify-end" variants={fadeIn}>
+            <motion.div className="hidden lg:flex justify-end" variants={fadeIn}>
                 <Image src={bg} alt="logo" width={600} height={600} className="absolute -top-3" />
+            </motion.div>
+            <motion.div className="hidden md:flex lg:hidden justify-end" variants={fadeIn}>
+                <Image src={image_nobg} alt="logo" width={350} height={350} className="absolute top-2" />
             </motion.div>
         </motion.div>
     );
