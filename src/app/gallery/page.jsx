@@ -2,6 +2,9 @@ import top from "@assets/secPagesTop.svg"
 import Gallery from "@components/Gallery"
 import Image from "next/image"
 
+export const metadata = {
+  title: 'Gallery | Muralidharan'
+}
 
 export default function page() {
   return (

@@ -6,7 +6,7 @@ import Link from "next/link"
 export default function DownloadCard({ name, bgColor, icon, link, textColor }) {
   return (
     <div className="py-4 flex justify-center">
-      <div className={name == "Media Kit" ? `block p-6 max-w-sm rounded-3xl text-white columns-2 border-b-4 border-black` : `block p-6 max-w-sm rounded-3xl columns-2 border-b-4 border-black`} style={{ backgroundColor: bgColor }}>
+      <div className={name === "Media Kit" ? `block p-6 h-[180px] max-w-sm rounded-3xl text-white columns-2 border-b-4 border-black` : `block p-6 max-w-sm h-[180px] rounded-3xl columns-2 border-b-4 border-black`} style={{ backgroundColor: bgColor }}>
         <h1 className="text-xl m-4 ">{name}</h1>
         <div className="mt-10">
           <Link href={link} type="button" className="absolute ml-9 mt-1">Click Here</Link>

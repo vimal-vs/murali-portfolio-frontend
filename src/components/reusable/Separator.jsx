@@ -17,7 +17,7 @@ export default function Seperator({ text, bgColor, textColor }) {
         {text === "Trusted by the best" && <Image src={star} alt="logo" className="mb-12"></Image>}
         {text === "Customer Testimonials" && <Image src={diamond} alt="logo" className="mb-12"></Image>}
         {text === "My recent blogs" && <Image src={bookmark} alt="logo" className="mb-12"></Image>}
-        {text === "My Podcasts" && <FaYoutube className="mb-12 text-2xl" />}
+        {text === "My recent podcasts" && <FaYoutube className="mb-12 text-2xl" />}
       </div>
       {text === "Want to make an appointment ?" &&
         <div className="flex justify-center pb-4 md:py-4">

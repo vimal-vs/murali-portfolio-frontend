@@ -8,7 +8,7 @@ import { CommonProvider } from "@contexts/CommonContext";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata = {
-  title: "Muralidharan Portfolio",
+  title: "Portfolio | Muralidharan R",
   description: "Personal Portfolio Website of Muralidharan",
 };
 

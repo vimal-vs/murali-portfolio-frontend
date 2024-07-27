@@ -1,8 +1,8 @@
 import Link from 'next/link'
 
-export default function RecentBlogsCard({ thumbnail, title, content, date, url }) {
+export default function RecentBlogsCard({ thumbnail, title, content, date }) {
   return (
-    <Link href={`${url}`} className="shadow-md border-2 mx-auto mb-8 flex max-w-md flex-col rounded-2xl bg-white px-4 md:max-w-5xl md:flex-row md:items-center hover:scale-105 transition-all duration-300">
+    <Link href={`/blogs/${title}`} className="shadow-md border-2 mx-auto mb-8 flex max-w-md flex-col rounded-2xl bg-white px-4 md:max-w-5xl md:flex-row md:items-center hover:scale-105 transition-all duration-300">
       <div className="shrink-0 my-4 md:mr-8 md:max-w-sm">
         <img className="rounded-2xl" src={thumbnail} alt="Cover Image" />
       </div>

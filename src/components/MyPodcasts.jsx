@@ -1,15 +1,12 @@
 "use client";
 
-import { cn } from "@utils/cn";
-import { Satisfy } from "next/font/google";
-import leftImg from "@assets/vinh.svg";
-import Image from "next/image";
 import Clickable from "./reusable/Clickable";
 import { getAllPodcasts } from "@actions/podcasts";
 import { useEffect, useState } from "react";
 import getEmbedUrl from "./reusable/EmbedUrl";
-
-const satisfy = Satisfy({ subsets: ["latin"], weight: "400" });
+import Seperator from "./reusable/Separator";
+import Carousel from "react-multi-carousel";
+import "react-multi-carousel/lib/styles.css";
 
 export default function MyPodcasts() {
     const [podcasts, setPodcasts] = useState([]);
@@ -22,32 +19,68 @@ export default function MyPodcasts() {
         fetchData();
     }, []);
 
+    const responsive = {
+        desktop: {
+            breakpoint: { max: 3000, min: 1024 },
+            items: 2,
+            slidesToSlide: 2
+        },
+        tablet: {
+            breakpoint: { max: 1024, min: 464 },
+            items: 2,
+            slidesToSlide: 2
+        },
+        mobile: {
+            breakpoint: { max: 464, min: 0 },
+            items: 1,
+            slidesToSlide: 1
+        }
+    };
+
     return (
-        <div className="flex justify-start relative mb-10">
-            <Image src={leftImg} alt="Left Image" className="hidden md:block" />
-            <div className="flex flex-col w-full">
-                <h1 className={cn(satisfy.className, "text-[3.50rem] w-full text-center")}>
-                    My Podcasts
-                </h1>
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-2 md:-ml-20 mt-10 ">
+        <div className="flex flex-col justify-start relative my-10">
+            <div className="flex flex-col w-full space-y-6">
+                <Seperator text="My recent podcasts" />
+                <Carousel
+                    swipeable
+                    draggable
+                    showDots
+                    renderDotsOutside
+                    responsive={responsive}
+                    ssr
+                    infinite
+                    autoPlaySpeed={1000}
+                    keyBoardControl
+                    customTransition="all .5"
+                    transitionDuration={500}
+                    containerClass="carousel-container"
+                    removeArrowOnDeviceType={["tablet", "mobile"]}
+                    dotListClass="custom-dot-list-style"
+                    itemClass="carousel-item-padding-40-px"
+                    className="pl-32"
+                >
                     {podcasts?.map((item, index) => (
-                        <div key={index} className="ml-6">
+                        <div key={index} className="bg-white border border-gray-200 rounded-lg shadow-md m-4 text-center h-[450px] max-w-[500px]">
                             <iframe
-                                width="350"
-                                height="200"
                                 src={getEmbedUrl(item.url)}
                                 title={`YouTube video player ${index}`}
                                 frameBorder="0"
                                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                                 referrerPolicy="strict-origin-when-cross-origin"
                                 allowFullScreen
+                                className="w-full h-[300px]"
                             ></iframe>
+                            <div className="mt-4 p-4 ">
+                                <h3 className="text-lg font-semibold mb-2">{item.title}</h3>
+                                <p className="text-gray-600 text-sm mb-2 truncate">{item.description}</p>
+                                {/* <p className="text-gray-400 text-sm">{new Date(item.date).toLocaleDateString()}</p> */}
+                            </div>
                         </div>
                     ))}
-                </div>
-                <div className="flex justify-end mt-3">
-                    <Clickable text="View all podcasts" url="/podcasts" />
-                </div>
+                </Carousel>
+            </div>
+            <div className="flex justify-end mt-2 mr-20">
+                <Clickable text="View all podcasts" url="/podcasts" />
             </div>
         </div>
     );
