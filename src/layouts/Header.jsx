@@ -16,7 +16,7 @@ export default function Header() {
 
   useEffect(() => {
     const handleScroll = () => {
-      setIsScrolled(window.scrollY > 80);
+      setIsScrolled(window.scrollY > 50);
     };
 
     window.addEventListener("scroll", handleScroll);
@@ -32,42 +32,44 @@ export default function Header() {
   ];
 
   return (
-    <motion.nav
-      className={`fixed top-0 left-0 w-full z-[9999] flex justify-between items-center pr-8 transition-colors duration-300 ${isScrolled ? 'bg-white text-black shadow-md' : 'bg-transparent text-white pt-1'}`}
-      initial={{ y: -100 }}
-      animate={{ y: isScrolled ? 0 : -100 }}
-      transition={{ duration: 0.3, ease: "easeOut" }}
-    >
-      <motion.h1
-        className="hidden md:block text-2xl font-medium px-7"
-        initial={{ opacity: 0.4, scale: 0.8 }}
-        animate={{
-          opacity: isScrolled ? 1 : 0,
-          scale: isScrolled ? 1 : 0.8
-        }}
-        transition={{
-          duration: 0.7,
-          ease: [0.68, -0.55, 0.27, 1.55]
-        }}
+    <>
+      <motion.nav
+        className={`fixed top-0 left-0 w-full z-[9999] flex justify-between items-center pr-8 transition-colors duration-300 ${isScrolled ? 'bg-white text-black shadow-md' : 'bg-transparent text-white pt-1'}`}
+        initial={{ y: -100 }}
+        animate={{ y: 0 }}
+        transition={{ duration: 0.3, ease: "easeOut" }}
       >
-        {isScrolled && (
-          <Link href={"/"} className={cn(satisfy.className, "flex items-center")}>
-            <Image src={logo} className="size-16" />
-            <p className="text-3xl">uralidharan</p>
-          </Link>
-        )}
-      </motion.h1>
-      <div className="flex md:gap-8 font-semibold">
-        {navItems.map((item) => (
-          <Link
-            key={item.href}
-            href={item.href}
-            className={`px-7 py-4 text-lg transition-colors duration-300 ${isScrolled ? "hover:text-purple" : "hover:text-yellow"} ${router.pathname === item.href ? 'text-yellow' : ''}`}
-          >
-            {item.label}
-          </Link>
-        ))}
-      </div>
-    </motion.nav>
+        <motion.h1
+          className="hidden md:block text-2xl font-medium px-7"
+          initial={{ opacity: 0.4, scale: 0.8 }}
+          animate={{
+            opacity: isScrolled ? 1 : 0,
+            scale: isScrolled ? 1 : 0.8
+          }}
+          transition={{
+            duration: 0.7,
+            ease: [0.68, -0.55, 0.27, 1.55]
+          }}
+        >
+          {isScrolled && (
+            <Link href={"/"} className={cn(satisfy.className, "flex items-center")}>
+              <Image src={logo} className="size-16" />
+              <p className="text-3xl">uralidharan</p>
+            </Link>
+          )}
+        </motion.h1>
+        <div className="flex md:gap-8 font-semibold">
+          {navItems.map((item) => (
+            <Link
+              key={item.href}
+              href={item.href}
+              className={`px-7 py-4 text-lg transition-colors duration-300 ${isScrolled ? "hover:text-purple text-black" : "hover:text-yellow text-white"} ${router.pathname === item.href && 'text-yellow'}`}
+            >
+              {item.label}
+            </Link>
+          ))}
+        </div>
+      </motion.nav>
+    </>
   );
 }
