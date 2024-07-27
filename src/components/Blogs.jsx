@@ -5,7 +5,6 @@ import { Nova_Mono } from "next/font/google"
 import RecentBlogsCard from "./reusable/RecentBlogsCard"
 import { useState, useEffect } from "react"
 import { getAllBlogs } from "@actions/blogs"
-import filler from "@assets/fillerImg.svg"
 
 const novamono = Nova_Mono({ weight: '400', subsets: ['latin'] })
 

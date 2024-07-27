@@ -1,13 +1,13 @@
 "use client";
 
 import { FaFacebookF, FaYoutube, FaInstagram, FaLinkedinIn, FaTwitter, FaWhatsapp, FaEnvelope, FaPhoneAlt, FaMapMarkerAlt } from 'react-icons/fa';
-import { motion } from 'framer-motion';
+import { motion, useAnimation, useInView } from 'framer-motion';
 import { FloatingWhatsApp } from "react-floating-whatsapp";
 import avatar from "@/assets/whatsapp_avatar.png";
 import footer_vector from "@/assets/footer_yellow.svg";
 import close from "@/assets/close.svg";
 import Image from 'next/image';
-import { useState } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { useCommonContext } from '@contexts/CommonContext';
 
 const staggerContainer = {
@@ -32,16 +32,26 @@ const iconVariants = {
 
 export default function Footer() {
     const [closeWhatsappPopup, setCloseWhatsappPopup] = useState(false);
-
     const footerData = useCommonContext()?.data?.footer;
     const LinksData = useCommonContext()?.data?.links;
+
+    const controls = useAnimation();
+    const ref = useRef(null);
+    const inView = useInView(ref, { triggerOnce: true });
+
+    useEffect(() => {
+        if (inView) {
+            controls.start("show");
+        }
+    }, [controls, inView]);
 
     return (
         <>
             <motion.footer
+                ref={ref}
                 variants={staggerContainer}
                 initial="hidden"
-                animate="show"
+                animate={controls}
                 className="bg-white text-black p-8 mt-8 border-t-2 border-black relative overflow-hidden"
             >
                 <h2 className="text-2xl md:text-5xl font-bold flex gap-2 tracking-wide">
