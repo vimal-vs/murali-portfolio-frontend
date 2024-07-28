@@ -1,4 +1,5 @@
 import Link from 'next/link'
+import parser from "html-react-parser"
 
 export default function RecentBlogsCard({ thumbnail, title, content, date }) {
   return (
@@ -8,7 +9,7 @@ export default function RecentBlogsCard({ thumbnail, title, content, date }) {
       </div>
       <div className="py-4 sm:py-8">
         <p className="mb-6 block text-2xl font-medium text-gray-700">{title}</p>
-        <p className="mb-6 text-gray-500">{content}</p>
+        <p className="mb-6 text-gray-500">{parser(content)}</p>
         <div className="flex">
           <p className="w-56">
             <span className="text-sm text-gray-400">{date}</span>
