@@ -52,7 +52,7 @@ function BlogCard({ item }) {
       <RecentBlogsCard
         thumbnail={item.imageUrl}
         title={item.title}
-        content={item.content.substring(0, 150) + '...'}
+        content={item.content}
         date={item.date}
         url={item.link}
       />

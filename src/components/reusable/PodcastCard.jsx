@@ -1,21 +1,52 @@
+import { motion } from "framer-motion"
+import { FaShareAlt } from "react-icons/fa"
 
-export default function PodcastCard({title, description, url}) {
+export default function PodcastCard({ title, description, url }) {
+
+  const handleShare = async () => {
+    if (navigator.share) {
+      try {
+        await navigator.share({
+          title: title,
+          text: description,
+          url: url,
+        });
+      } catch (error) {
+        console.error('Error sharing:', error);
+      }
+    } else {
+      console.log('Web Share API is not supported in your browser.');
+    }
+  };
+
   return (
-      <div class="xl:w-1/4 md:w-1/2 p-4">
-        <div class="bg-gray-400 bg-opacity-40 p-6 rounded-lg">
-        <iframe 
-            class="w-full h-40 rounded mb-6" 
-            src={url}
-            frameborder="0" 
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-            allowfullscreen>
-        </iframe>
-        <h2 class="text-lg text-black font-medium title-font mb-4">{title.length >= 50 ? title.substring(0, 50) + '...' : title}</h2>
-        <p class="leading-relaxed text-base">{description.length >= 65 ? description.substring(0, 55) + '...' : description}</p>
+    <motion.div
+      className="w-full p-4"
+    >
+      <div className="bg-gray-600 rounded-lg shadow-lg h-[450px] flex flex-col justify-between">
+        <iframe
+          className="w-full h-[300px]"
+          src={url}
+          frameBorder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowFullScreen
+        ></iframe>
+        <div className="px-6 pt-4 h-[150px]">
+          <h2 className="text-xl text-white font-semibold mb-2 truncate-line">{title}</h2>
+          <p className="text-white text-sm mb-4 truncate-line-1">{description}</p>
         </div>
+        <div className="flex justify-end items-end mr-6 mb-6 relative">
+          <button
+            onClick={handleShare}
+            className="group text-xl text-yellow hover:text-white transition-colors duration-300 relative"
+          >
+            <span className="absolute -left-14 top-1/2 transform -translate-y-1/2 ml-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300 text-sm z-20">
+              Share
+            </span>
+            <FaShareAlt />
+          </button>
         </div>
+      </div>
+    </motion.div>
   )
 }
-
-
-

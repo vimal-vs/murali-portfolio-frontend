@@ -8,7 +8,7 @@ export const metadata = {
 
 export default function page() {
   return (
-    <div className="relative">
+    <div>
       <Image src={top} alt="logo" className="size-full" />
       <Podcasts />
     </div>
