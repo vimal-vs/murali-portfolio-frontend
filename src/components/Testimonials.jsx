@@ -19,7 +19,7 @@ export default function Testimonials() {
     }, [])
 
     return (
-        <div className="mt-6 md:mt-10">
+        <div className="mt-6">
             <Seperator text={"Customer Testimonials"} bgColor={"#fff"} />
             <Marquee
                 pauseOnHover

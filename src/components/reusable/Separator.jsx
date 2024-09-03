@@ -11,12 +11,12 @@ const satisfy = Satisfy({ subsets: ["latin"], weight: "400" });
 
 export default function Seperator({ text, bgColor, textColor }) {
   return (
-    <div className="md:pt-6" style={{ backgroundColor: bgColor }}>
+    <div className="md:mt-6 px-3" style={{ backgroundColor: bgColor }}>
       <div className="flex justify-center items-center">
-        <h1 className={cn(satisfy.className, "text-3xl md:text-[3.50rem] p-2 flex gap-4")}>{text}</h1>
+        <h1 className={cn(satisfy.className, "text-3xl md:text-[3.50rem] p-2 mt-4 flex gap-4")}>{text}</h1>
         {text === "Trusted by the best" && <Image src={star} alt="logo" className="mb-12"></Image>}
         {text === "Customer Testimonials" && <Image src={diamond} alt="logo" className="mb-12"></Image>}
-        {text === "My recent blogs" && <Image src={bookmark} alt="logo" className="mb-12"></Image>}
+        {text === "My recent blogs" && <Image src={bookmark} alt="logo" className="size-8 md:size-auto mb-6 md:mb-12"></Image>}
         {text === "My recent podcasts" && <FaYoutube className="mb-12 text-2xl" />}
       </div>
       {text === "Want to make an appointment ?" &&

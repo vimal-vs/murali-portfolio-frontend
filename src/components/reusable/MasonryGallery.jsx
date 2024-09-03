@@ -1,6 +1,9 @@
 "use client";
 
+import { getAllEvents } from "@actions/events";
 import { motion } from "framer-motion";
+import Image from "next/image";
+import { useEffect, useState } from "react";
 
 const staggerContainer = {
     hidden: { opacity: 0 },
@@ -17,106 +20,47 @@ const staggerItem = {
     show: { opacity: 1, y: 0 },
 };
 
-export default function MasonryGallery({ images }) {
+export default function MasonryGallery() {
+    const [Images, setImages] = useState([]);
+
+    useEffect(() => {
+        const fetchData = async () => {
+            const data = await getAllEvents();
+            const commonData = data.filter(event => event.id === 0);
+            setImages(commonData[0]?.imageUrls)
+        }
+        fetchData()
+    }, [])
+
     return (
         <motion.div
             variants={staggerContainer}
             initial="hidden"
             whileInView="show"
-            viewport={{ once: true, amount: 0.3 }} // Ensures the animation happens only once when 30% of the element is in view
-            className="grid grid-cols-2 md:grid-cols-4 gap-4"
+            viewport={{ once: true, amount: 0.3 }}
+            className="relative w-full px-1"
         >
-            <div className="grid gap-4">
-                <motion.div variants={staggerItem}>
-                    <img
-                        className="h-auto max-w-full rounded-lg"
-                        src="https://flowbite.s3.amazonaws.com/docs/gallery/masonry/image.jpg"
-                        alt=""
-                    />
-                </motion.div>
-                <motion.div variants={staggerItem}>
-                    <img
-                        className="h-auto max-w-full rounded-lg"
-                        src="https://flowbite.s3.amazonaws.com/docs/gallery/masonry/image-1.jpg"
-                        alt=""
-                    />
-                </motion.div>
-                <motion.div variants={staggerItem}>
-                    <img
-                        className="h-auto max-w-full rounded-lg"
-                        src="https://flowbite.s3.amazonaws.com/docs/gallery/masonry/image-2.jpg"
-                        alt=""
-                    />
-                </motion.div>
-            </div>
-            <div className="grid gap-4">
-                <motion.div variants={staggerItem}>
-                    <img
-                        className="h-auto max-w-full rounded-lg"
-                        src="https://flowbite.s3.amazonaws.com/docs/gallery/masonry/image-3.jpg"
-                        alt=""
-                    />
-                </motion.div>
-                <motion.div variants={staggerItem}>
-                    <img
-                        className="h-auto max-w-full rounded-lg"
-                        src="https://flowbite.s3.amazonaws.com/docs/gallery/masonry/image-4.jpg"
-                        alt=""
-                    />
-                </motion.div>
-                <motion.div variants={staggerItem}>
-                    <img
-                        className="h-auto max-w-full rounded-lg"
-                        src="https://flowbite.s3.amazonaws.com/docs/gallery/masonry/image-5.jpg"
-                        alt=""
-                    />
-                </motion.div>
-            </div>
-            <div className="grid gap-4">
-                <motion.div variants={staggerItem}>
-                    <img
-                        className="h-auto max-w-full rounded-lg"
-                        src="https://flowbite.s3.amazonaws.com/docs/gallery/masonry/image-6.jpg"
-                        alt=""
-                    />
-                </motion.div>
-                <motion.div variants={staggerItem}>
-                    <img
-                        className="h-auto max-w-full rounded-lg"
-                        src="https://flowbite.s3.amazonaws.com/docs/gallery/masonry/image-7.jpg"
-                        alt=""
-                    />
-                </motion.div>
-                <motion.div variants={staggerItem}>
-                    <img
-                        className="h-auto max-w-full rounded-lg"
-                        src="https://flowbite.s3.amazonaws.com/docs/gallery/masonry/image-8.jpg"
-                        alt=""
-                    />
-                </motion.div>
-            </div>
-            <div className="grid gap-4">
-                <motion.div variants={staggerItem}>
-                    <img
-                        className="h-auto max-w-full rounded-lg"
-                        src="https://flowbite.s3.amazonaws.com/docs/gallery/masonry/image-9.jpg"
-                        alt=""
-                    />
-                </motion.div>
-                <motion.div variants={staggerItem}>
-                    <img
-                        className="h-auto max-w-full rounded-lg"
-                        src="https://flowbite.s3.amazonaws.com/docs/gallery/masonry/image-10.jpg"
-                        alt=""
-                    />
-                </motion.div>
-                <motion.div variants={staggerItem}>
-                    <img
-                        className="h-auto max-w-full rounded-lg"
-                        src="https://flowbite.s3.amazonaws.com/docs/gallery/masonry/image-11.jpg"
-                        alt=""
-                    />
-                </motion.div>
+            <div className="grid grid-cols-2 gap-2 md:grid-cols-3 lg:grid-cols-4">
+                {Images?.map((image, index) => {
+                    return (
+                        <div
+                            key={index}
+                            variants={staggerItem}
+                            className="w-full h-full"
+                        >
+                            <Image
+                                className="object-cover"
+                                src={image}
+                                alt={`Image ${index + 1}`}
+                                width={0}
+                                height={0}
+                                sizes="100vw"
+                                style={{ width: '100%', height: '100%' }}
+                                variants={staggerItem}
+                            />
+                        </div>
+                    );
+                })}
             </div>
         </motion.div>
     );

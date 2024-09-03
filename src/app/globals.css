@@ -32,3 +32,7 @@ body {
     overflow: hidden;
     text-overflow: ellipsis;
 }
+
+.custom-dot-list-style {
+    bottom: 10px !important;
+}

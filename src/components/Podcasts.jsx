@@ -27,7 +27,7 @@ export default function Podcasts() {
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 1 }}
-        className="absolute top-20 w-full mx-auto"
+        className="absolute top-32 w-full mx-auto"
       >
         <h1 className={cn(novamono.className, "text-center text-5xl md:text-9xl underline decoration-8 underline-offset-8 text-white decoration-[#FFCE31]")}>
           PODCASTS

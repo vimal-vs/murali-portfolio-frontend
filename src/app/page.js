@@ -23,12 +23,15 @@ export default function Home() {
       <Separator text={"Trusted by the best"} bgColor={"#FDC435"} />
       <TrustedBar />
       <Testimonials />
-      <div className="flex flex-col gap-5 mt-16">
+      <div className="flex flex-col gap-5 mt-16 mb-10">
         <MasonryGallery />
         <Clickable text="View Gallery" url="/gallery" />
       </div>
       <Separator text={"My recent blogs"} bgColor={"#fff"} />
       <RecentBlogs />
+      <div className="flex justify-end md:mr-20">
+        <Clickable text="View all blogs" url="/blogs" />
+      </div>
       <MyPodcasts />
       <Separator text={"Want to make an appointment ?"} bgColor={"#8280F2"} />
       <Downloads />

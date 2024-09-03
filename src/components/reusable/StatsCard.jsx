@@ -7,10 +7,25 @@ import { useEffect, useState } from "react";
 export default function StatsCard({ icon, stats, content, marginLeft }) {
   const [count, setCount] = useState(0);
   const [animationDone, setAnimationDone] = useState(false);
+  const [suffix, setSuffix] = useState("");
 
   useEffect(() => {
+    const extractNumericPart = (stats) => {
+      const match = stats.match(/(\d+)(.*)/);
+      if (match) {
+        return {
+          numeric: parseFloat(match[1]),
+          suffix: match[2],
+        };
+      }
+      return { numeric: 0, suffix: "" };
+    };
+
+    const { numeric, suffix } = extractNumericPart(stats);
+    setSuffix(suffix);
+
     const duration = 2500;
-    const end = stats;
+    const end = numeric;
 
     const easeOutQuad = (t) => t * (2 - t);
 
@@ -38,12 +53,13 @@ export default function StatsCard({ icon, stats, content, marginLeft }) {
     <div className="flex flex-col justify-center items-center gap-2">
       <div className="flex flex-col justify-center items-center relative">
         <motion.h1
-          className="text-5xl mt-2"
+          className="text-4xl md:text-5xl mt-2"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 2, ease: "easeInOut" }}
         >
           {count}
+          {suffix}
         </motion.h1>
         <motion.div
           className={`absolute -z-10 bottom-9 -right-5 md:bottom-6 ${marginLeft ? "md:-right-7" : "md:-right-8"}`}
@@ -59,7 +75,7 @@ export default function StatsCard({ icon, stats, content, marginLeft }) {
           <Image src={icon} alt="logo" width={50} height={50} className="" />
         </motion.div>
       </div>
-      <p className="mt-3 text-center md:max-w-[250px] text-lg md:text-2xl">{content}</p>
+      <p className="mt-3 text-center md:max-w-[250px] text-base md:text-2xl">{content}</p>
     </div>
   );
 }

@@ -27,8 +27,8 @@ export default function MyPodcasts() {
         },
         tablet: {
             breakpoint: { max: 1024, min: 464 },
-            items: 2,
-            slidesToSlide: 2
+            items: 1,
+            slidesToSlide: 1
         },
         mobile: {
             breakpoint: { max: 464, min: 0 },
@@ -39,28 +39,27 @@ export default function MyPodcasts() {
 
     return (
         <div className="flex flex-col justify-start relative my-10">
-            <div className="flex flex-col w-full space-y-6">
+            <div className="flex flex-col w-full md:space-y-6">
                 <Seperator text="My recent podcasts" />
                 <Carousel
                     swipeable
                     draggable
                     showDots
-                    renderDotsOutside
                     responsive={responsive}
                     ssr
                     infinite
-                    autoPlaySpeed={1000}
+                    autoPlay
+                    autoPlaySpeed={3000}
                     keyBoardControl
-                    customTransition="all .5"
                     transitionDuration={500}
                     containerClass="carousel-container"
                     removeArrowOnDeviceType={["tablet", "mobile"]}
                     dotListClass="custom-dot-list-style"
                     itemClass="carousel-item-padding-40-px"
-                    className="pl-40"
+                    className="lg:pl-40 pb-10"
                 >
                     {podcasts?.map((item, index) => (
-                        <div key={index} className="bg-white border border-gray-200 rounded-lg shadow-md m-4 text-center h-[450px] max-w-[500px]">
+                        <div key={index} className="bg-white border border-gray-200 rounded-lg shadow-md m-4 h-[450px] max-w-[500px]">
                             <iframe
                                 src={getEmbedUrl(item.url)}
                                 title={`YouTube video player ${index}`}
@@ -68,9 +67,9 @@ export default function MyPodcasts() {
                                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                                 referrerPolicy="strict-origin-when-cross-origin"
                                 allowFullScreen
-                                className="w-full h-[300px]"
+                                className="w-full h-[300px] rounded-t-lg"
                             ></iframe>
-                            <div className="mt-4 p-4 ">
+                            <div className="mt-4 px-4">
                                 <h3 className="text-lg font-semibold mb-2">{item.title}</h3>
                                 <p className="text-gray-600 text-sm mb-2 truncate">{item.description}</p>
                                 {/* <p className="text-gray-400 text-sm">{new Date(item.date).toLocaleDateString()}</p> */}
@@ -79,7 +78,7 @@ export default function MyPodcasts() {
                     ))}
                 </Carousel>
             </div>
-            <div className="flex justify-end mt-2 mr-20">
+            <div className="flex justify-end mt-2 md:mr-20">
                 <Clickable text="View all podcasts" url="/podcasts" />
             </div>
         </div>

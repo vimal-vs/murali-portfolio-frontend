@@ -47,7 +47,7 @@ function BlogCard({ item }) {
       initial="hidden"
       animate={controls}
       variants={staggerItem}
-      className="mb-6"
+      className="mb-6 px-3 md:container mx-auto"
     >
       <RecentBlogsCard
         thumbnail={item.imageUrl}

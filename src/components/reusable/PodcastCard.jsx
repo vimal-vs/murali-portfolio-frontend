@@ -23,15 +23,15 @@ export default function PodcastCard({ title, description, url }) {
     <motion.div
       className="w-full p-4"
     >
-      <div className="bg-gray-600 rounded-lg shadow-lg h-[450px] flex flex-col justify-between">
+      <div className="bg-purple rounded-lg shadow-lg h-[500px] flex flex-col justify-between">
         <iframe
-          className="w-full h-[300px]"
+          className="w-full h-[400px]"
           src={url}
           frameBorder="0"
           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
           allowFullScreen
         ></iframe>
-        <div className="px-6 pt-4 h-[150px]">
+        <div className="px-6 pt-4 h-[100px]">
           <h2 className="text-xl text-white font-semibold mb-2 truncate-line">{title}</h2>
           <p className="text-white text-sm mb-4 truncate-line-1">{description}</p>
         </div>

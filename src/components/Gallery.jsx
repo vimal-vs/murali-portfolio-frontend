@@ -17,7 +17,7 @@ export default function Gallery() {
   useEffect(() => {
     const fetchData = async () => {
       const data = await getAllEvents();
-      setEvents(data)
+      setEvents(data.filter(event => event.id !== 0))
     }
     fetchData()
   }, [])
@@ -27,10 +27,10 @@ export default function Gallery() {
       <div className="absolute top-20 w-full mx-auto">
         <h1 className={cn(novamono.className, "text-center text-9xl underline decoration-8 underline-offset-8 text-white decoration-[#FFCE31]")}>GALLERY</h1>
       </div>
-      <div className="flex justify-around">
+      <div className="flex justify-around my-12">
         {Events?.map((item, index) =>
           <div>
-            <GalleryCard key={index} location={item.title} date={item.date} />
+            <GalleryCard key={index} content={item} />
           </div>
         )}
       </div>
