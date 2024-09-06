@@ -27,8 +27,8 @@ export default function Testimonials() {
                 speed={40}
             >
                 {testimonials?.map((item, index) =>
-                    <div className="ml-6 mt-3">
-                        <TestimonialCard key={index} name={item.name} designation={item.designation} content={item.content} />
+                    <div className="ml-6 mt-3" key={index}>
+                        <TestimonialCard name={item.name} designation={item.designation} content={item.content} />
                     </div>
                 )}
             </Marquee>
