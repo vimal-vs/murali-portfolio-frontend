@@ -9,6 +9,7 @@ import close from "@/assets/close.svg";
 import Image from 'next/image';
 import { useState, useEffect, useRef } from 'react';
 import { useCommonContext } from '@contexts/CommonContext';
+import Link from 'next/link';
 
 const staggerContainer = {
     hidden: { opacity: 0 },
@@ -66,11 +67,11 @@ export default function Footer() {
                             <div className="space-y-5">
                                 <div className="flex items-center">
                                     <FaEnvelope className="mr-2" />
-                                    <a href="mailto:hi@connectmurali.com">{footerData?.email}</a>
+                                    <Link href={`mailto:${footerData?.email}`}>{footerData?.email}</Link>
                                 </div>
                                 <div className="flex items-center">
                                     <FaPhoneAlt className="mr-2" />
-                                    <span>{footerData?.contactNumber}</span>
+                                    <Link href={`tel:${footerData?.contactNumber}`}>{footerData?.contactNumber}</Link>
                                 </div>
                                 <div className="flex items-center">
                                     <FaMapMarkerAlt className="mr-2" />

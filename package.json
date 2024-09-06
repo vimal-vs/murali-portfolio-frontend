@@ -9,6 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "antd": "^5.20.5",
     "axios": "^1.7.2",
     "clsx": "^2.1.1",
     "framer-motion": "^11.2.13",
@@ -27,6 +28,8 @@
     "react-responsive-carousel": "^3.2.23",
     "react-responsive-masonry": "^2.2.1",
     "react-simple-typewriter": "^5.0.1",
+    "react-slick": "^0.30.2",
+    "slick-carousel": "^1.8.1",
     "tailwind-merge": "^2.4.0",
     "vara": "^1.4.1"
   },

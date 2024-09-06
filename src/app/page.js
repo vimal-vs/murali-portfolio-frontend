@@ -19,7 +19,6 @@ export default function Home() {
       <AboutMe />
       <Statistics />
       <LandingVideo embedId={"WGvtr4SPGpw?si=7ktQKc03n6e-sfFm"} />
-      <PropsBar />
       <Separator text={"Trusted by the best"} bgColor={"#FDC435"} />
       <TrustedBar />
       <Testimonials />

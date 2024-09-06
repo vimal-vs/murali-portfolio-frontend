@@ -34,7 +34,7 @@ export default function LandingVideo() {
   }, []);
 
   return (
-    <div className="flex justify-center mt-20">
+    <div className="flex justify-center my-20">
       <video ref={videoRef} className="md:border-[10px] border-black md:rounded-2xl md:w-[90%]" controls playsInline loop>
         <source src={video} type="video/mp4" />
       </video>

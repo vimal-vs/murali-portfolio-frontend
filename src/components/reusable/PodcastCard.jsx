@@ -30,6 +30,7 @@ export default function PodcastCard({ title, description, url }) {
           frameBorder="0"
           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
           allowFullScreen
+
         ></iframe>
         <div className="px-6 pt-4 h-[100px]">
           <h2 className="text-xl text-white font-semibold mb-2 truncate-line">{title}</h2>

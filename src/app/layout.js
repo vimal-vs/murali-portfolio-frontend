@@ -1,9 +1,10 @@
 import { Inter } from "next/font/google";
 import "./globals.css";
-import { cn } from '@/utils/cn'
+import { cn } from '@/utils/cn';
 import Header from "@/layouts/Header";
 import Footer from "@/layouts/Footer";
 import { CommonProvider } from "@contexts/CommonContext";
+import PageTransition from '@/components/reusable/PageTransition';
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -18,9 +19,9 @@ export default function RootLayout({ children }) {
       <body className={cn(inter.className, "flex flex-col w-full min-h-screen")}>
         <CommonProvider>
           <Header />
-          <div>
+          <PageTransition>
             {children}
-          </div>
+          </PageTransition>
           <Footer />
         </CommonProvider>
       </body>
