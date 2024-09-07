@@ -8,7 +8,7 @@ const getEmbedUrl = (url) => {
         videoId = urlObj.pathname.slice(1);
     }
 
-    return `https://www.youtube.com/embed/${videoId}`;
+    return `https://www.youtube.com/embed/${videoId}?controls=0&rel=1`;
 };
 
 export default getEmbedUrl;

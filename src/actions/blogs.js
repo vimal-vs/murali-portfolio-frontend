@@ -1,9 +1,14 @@
 import axios from "axios";
 
-export const getAllBlogs = async () => {
+export const getAllBlogs = async ({ limit = true }) => {
     try {
-        const response = await axios.get(`${process.env.NEXT_PUBLIC_API_URL}/blogs/all?limit=3`);
-        return response.data
+        const params = new URLSearchParams();
+
+        if (limit) params.append('limit', '3');
+
+        const query = params.toString() ? `?${params.toString()}` : '';
+        const response = await axios.get(`${process.env.NEXT_PUBLIC_API_URL}/blogs/all${query}`);
+        return response.data;
     } catch (error) {
         console.error('Error fetching blogs:', error);
     }

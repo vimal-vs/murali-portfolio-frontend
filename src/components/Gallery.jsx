@@ -49,7 +49,7 @@ export default function Gallery() {
 
   return (
     <div>
-      <div className="absolute top-5 md:top-20 w-full mx-auto">
+      <div className="absolute top-5 md:top-32 w-full mx-auto">
         <h1
           className={cn(
             novamono.className,
