@@ -20,7 +20,7 @@ export default function FooterSocials({ grid3 = false }) {
             className="flex md:justify-center mt-8 lg:mt-0"
             variants={staggerItem}
         >
-            <motion.div className={`md:grid w-full md:grid-cols-2 justify-center items-center ${grid3 ? "grid grid-cols-3 gap-y-8" : "flex"}`}>
+            <motion.div className={`md:grid w-full md:grid-cols-2 justify-center items-center ${grid3 ? "grid grid-cols-3 gap-y-8" : "flex gap-8"}`}>
                 {LinksData && Object.keys(LinksData).map((key, index) => (
                     <motion.a
                         key={index}
