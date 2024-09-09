@@ -63,7 +63,7 @@ export default function AboutMe() {
                     <p>{landingData?.subHeader}</p>
                 </motion.div>
                 <motion.div variants={fadeInFromBottom}>
-                    <p className="text-xl md:text-3xl py-4 md:py-7 max-w-[500px] pr-4 md:pr-0 pl-6 md:pl-10">
+                    <p className="text-xl md:text-2xl py-4 md:py-7 max-w-[500px] pr-4 md:pr-0 pl-6 md:pl-10">
                         {landingData?.shortText}
                     </p>
                 </motion.div>
