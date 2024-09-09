@@ -1,6 +1,6 @@
 import axios from "axios";
 
-export const getAllBlogs = async ({ limit = true }) => {
+export const getAllBlogs = async ({ limit = true } = {}) => {
     try {
         const params = new URLSearchParams();
 

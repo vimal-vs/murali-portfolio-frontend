@@ -1,6 +1,6 @@
 "use client";
 
-import { FaFacebookF, FaYoutube, FaInstagram, FaLinkedinIn, FaTwitter, FaWhatsapp, FaEnvelope, FaPhoneAlt, FaMapMarkerAlt } from 'react-icons/fa';
+import { FaEnvelope, FaPhoneAlt, FaMapMarkerAlt } from 'react-icons/fa';
 import { motion, useAnimation, useInView } from 'framer-motion';
 import { FloatingWhatsApp } from "react-floating-whatsapp";
 import avatar from "@/assets/whatsapp_avatar.png";
@@ -10,6 +10,7 @@ import Image from 'next/image';
 import { useState, useEffect, useRef } from 'react';
 import { useCommonContext } from '@contexts/CommonContext';
 import Link from 'next/link';
+import FooterSocials from '@components/FooterSocials';
 
 const staggerContainer = {
     hidden: { opacity: 0 },
@@ -26,15 +27,9 @@ const staggerItem = {
     show: { opacity: 1, y: 0, transition: { duration: 0.5 } },
 };
 
-const iconVariants = {
-    hidden: { opacity: 0, scale: 0 },
-    show: { opacity: 1, scale: 1, transition: { duration: 0.5 } },
-};
-
 export default function Footer() {
     const [closeWhatsappPopup, setCloseWhatsappPopup] = useState(false);
     const footerData = useCommonContext()?.data?.footer;
-    const LinksData = useCommonContext()?.data?.links;
 
     const controls = useAnimation();
     const ref = useRef(null);
@@ -81,29 +76,8 @@ export default function Footer() {
                                 </div>
                             </div>
                         </motion.div>
-                        <motion.div
-                            className="flex md:justify-center mt-8 lg:mt-0"
-                            variants={staggerItem}
-                        >
-                            <motion.div className="flex md:grid md:grid-cols-2 justify-center items-center gap-8">
-                                {LinksData && Object.keys(LinksData).map((key, index) => (
-                                    <motion.a
-                                        key={index}
-                                        href={LinksData[key]}
-                                        className="text-2xl"
-                                        variants={iconVariants}
-                                    >
-                                        {key === 'facebook' && <FaFacebookF />}
-                                        {key === 'youtube' && <FaYoutube />}
-                                        {key === 'instagram' && <FaInstagram />}
-                                        {key === 'linkedin' && <FaLinkedinIn />}
-                                        {key === 'twitter' && <FaTwitter />}
-                                        {key === 'whatsapp' && <FaWhatsapp />}
-                                    </motion.a>
-                                ))}
-                            </motion.div>
-                        </motion.div>
                     </div>
+                    <FooterSocials />
                     <div className='hidden md:block h-[220px] ml-auto bg-black w-0.5'></div>
                     <motion.div
                         className="flex flex-col mt-8 md:mt-0 md:w-[2/4] md:mx-auto"

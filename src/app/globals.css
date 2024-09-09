@@ -40,3 +40,45 @@ body {
 .ant-modal-content {
     padding: 0 !important;
 }
+
+.hamburger {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 100%;
+    height: 100%;
+    transition: all 0.3s ease;
+}
+
+.hamburger span {
+    display: block;
+    height: 2.5px;
+    background-color: black;
+    transition: all 0.3s ease;
+}
+
+.hamburger span:nth-child(1) {
+    transform-origin: top left;
+}
+
+.hamburger span:nth-child(2) {
+    transform-origin: top left;
+    margin-left: auto;
+    width: 70%;
+}
+
+.hamburger span:nth-child(3) {
+    transform-origin: bottom left;
+}
+
+.hamburger.open span:nth-child(1) {
+    transform: rotate(45deg);
+}
+
+.hamburger.open span:nth-child(2) {
+    opacity: 0;
+}
+
+.hamburger.open span:nth-child(3) {
+    transform: rotate(-45deg);
+}
