@@ -8,7 +8,6 @@ import logo from "@assets/logo.png";
 import { cn } from "@utils/cn";
 import { Satisfy } from "next/font/google";
 import { useScreenSize } from "@hooks/useScreenSize";
-import { FaEnvelope, FaPhoneAlt, FaMapMarkerAlt } from "react-icons/fa";
 import { useCommonContext } from "@contexts/CommonContext";
 import FooterSocials from "@components/FooterSocials";
 
@@ -80,9 +79,8 @@ export default function Header() {
           )}
         </motion.h1>
 
-        {/* Custom Hamburger Icon */}
         <div className="md:hidden flex items-center pr-3">
-          <button onClick={toggleMenu} className="relative w-8 h-8">
+          <button onClick={toggleMenu} className="relative w-6 h-6">
             <div className={`hamburger ${isMenuOpen ? "open" : ""}`}>
               <span></span>
               <span></span>
@@ -107,19 +105,30 @@ export default function Header() {
         </div>
       </motion.nav>
 
+      {/* Backdrop */}
+      {isMenuOpen && (
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 0.5 }}
+          exit={{ opacity: 0 }}
+          transition={{ duration: 0.3 }}
+          className="fixed inset-0 bg-black bg-opacity-50 z-[9997]"
+          onClick={toggleMenu}
+        />
+      )}
+
       {/* Mobile Menu */}
       <motion.div
         initial={{ x: "-100%" }}
         animate={{ x: isMenuOpen ? "0%" : "-100%" }}
         transition={{ duration: 0.5, ease: "easeOut" }}
-        className={`fixed top-0 left-0 w-3/4 h-full bg-white z-[9998] flex flex-col items-center pt-28 shadow-lg md:hidden`}
+        className={`fixed top-0 left-0 w-3/4 max-w-[350px] h-full bg-white z-[9998] flex flex-col items-center pt-28 shadow-lg md:hidden`}
       >
         {navItems.map((item) => (
           <Link
             key={item.href}
             href={item.href}
-            className={`text-xl font-medium mb-8 ${pathname === item.href ? "text-yellow" : "text-black"
-              }`}
+            className={`text-xl font-medium mb-8 ${pathname === item.href ? "text-yellow" : "text-black"}`}
             onClick={toggleMenu}
           >
             {item.label}
@@ -130,11 +139,8 @@ export default function Header() {
 
         {/* Contact Info for Mobile */}
         <div className="space-y-5 pt-12 px-6 mb-10 text-base">
-          {/* <motion.h1 className={cn(satisfy.className, "mx-auto w-fit text-3xl md:text-[4.75rem] pt-8 md:pt-20 flex gap-2")} variants={fadeInFromBottom}>
-            <p className=" underline underline-offset-2 decoration-purple">Murali Dharan</p><p className="-mt-1">.R</p>
-          </motion.h1> */}
           <motion.div className="flex justify-start gap-6" variants={fadeInFromBottom}>
-            <Link href={""} className="rounded bg-sm bg-yellow px-5 py-2">My Work</Link>
+            <Link href={""} className="rounded bg-sm bg-yellow px-5 py-2 whitespace-nowrap">My Work</Link>
             <Link href={""} className="rounded bg-sm bg-purple text-white px-5 py-2">Contact</Link>
           </motion.div>
           <div className="mx-auto">
