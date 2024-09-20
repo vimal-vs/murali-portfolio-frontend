@@ -39,7 +39,7 @@ export default function Downloads() {
       variants={staggerContainer}
       initial="hidden"
       animate={controls}
-      className="flex flex-col justify-center gap-6 md:gap-12 my-10"
+      className="flex flex-col justify-center gap-6 md:gap-12 my-10 px-4"
     >
       <motion.div
         variants={staggerItem}

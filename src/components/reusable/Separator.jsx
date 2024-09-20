@@ -13,11 +13,11 @@ export default function Seperator({ text, bgColor, textColor }) {
   return (
     <div className="md:mt-6 px-3" style={{ backgroundColor: bgColor }}>
       <div className="flex justify-center items-center">
-        <h1 className={cn(satisfy.className, "text-3xl md:text-[3.50rem] p-2 mt-4 flex gap-4")}>{text}</h1>
-        {text === "Trusted by the best" && <Image src={star} alt="logo" className="mb-12"></Image>}
-        {text === "Customer Testimonials" && <Image src={diamond} alt="logo" className="mb-12"></Image>}
-        {text === "My recent blogs" && <Image src={bookmark} alt="logo" className="size-8 md:size-auto mb-6 md:mb-12"></Image>}
-        {text === "My recent podcasts" && <FaYoutube className="mb-12 text-2xl" />}
+        <h1 className={cn(satisfy.className, "whitespace-nowrap text-3xl md:text-[3.50rem] p-2 mt-4 flex gap-4")}>{text}</h1>
+        {text === "Trusted by the best" && <Image src={star} alt="logo" className="mb-4 md:mb-12"></Image>}
+        {text === "Customer Testimonials" && <Image src={diamond} alt="logo" className="mb-4 md:mb-12"></Image>}
+        {text === "My recent blogs" && <Image src={bookmark} alt="logo" className="-ml-2 md:-ml-0 size-8 md:size-auto mb-4 md:mb-12"></Image>}
+        {text === "My recent podcasts" && <FaYoutube className="mb-4 md:mb-12 text-2xl" />}
       </div>
       {text === "Want to make an appointment ?" &&
         <div className="flex justify-center pb-4 md:py-4">
