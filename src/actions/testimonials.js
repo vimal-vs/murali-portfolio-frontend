@@ -5,6 +5,6 @@ export const getAllTestimonials = async () => {
         const response = await axios.get(`${process.env.NEXT_PUBLIC_API_URL}/testimonials/all`);
         return response.data
     } catch (error) {
-        console.error('Error fetching blogs:', error);
+        console.error('Error fetching testimonials:', error);
     }
 };

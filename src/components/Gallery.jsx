@@ -19,7 +19,7 @@ export default function Gallery() {
   useEffect(() => {
     const fetchData = async () => {
       const data = await getAllEvents();
-      setEvents(data.filter((event) => event.id !== 0));
+      setEvents(data.filter((event) => event.id !== 1 && event.id !== 0));
     };
     fetchData();
   }, []);

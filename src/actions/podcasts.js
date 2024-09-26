@@ -5,6 +5,6 @@ export const getAllPodcasts = async () => {
         const response = await axios.get(`${process.env.NEXT_PUBLIC_API_URL}/podcasts/all?limit=6`);
         return response.data
     } catch (error) {
-        console.error('Error fetching blogs:', error);
+        console.error('Error fetching podcasts:', error);
     }
 };

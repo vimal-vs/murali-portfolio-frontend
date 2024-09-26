@@ -26,7 +26,7 @@ export default function MasonryGallery() {
     useEffect(() => {
         const fetchData = async () => {
             const data = await getAllEvents();
-            const commonData = data.filter(event => event.id === 0);
+            const commonData = data.filter(event => event.id === 1);
             setImages(commonData[0]?.imageUrls)
         }
         fetchData()
