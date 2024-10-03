@@ -99,7 +99,7 @@ export default function Footer() {
             </motion.footer>
             {closeWhatsappPopup === false && (
                 <FloatingWhatsApp
-                    phoneNumber={footerData?.phoneNumber}
+                    phoneNumber={footerData?.contactNumber}
                     accountName="Murali Dharan R"
                     statusMessage="Available"
                     chatMessage='Hey there, want to connect?'
