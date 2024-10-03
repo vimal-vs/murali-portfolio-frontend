@@ -10,7 +10,7 @@ const novamono = Nova_Mono({ weight: '400', subsets: ['latin'] })
 
 export default function Blogs({ limit = true, padding }) {
 
-  const [Blogs, setBlogs] = useState([]);
+  const [blogs, setBlogs] = useState([]);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -33,8 +33,8 @@ export default function Blogs({ limit = true, padding }) {
         </h1>
       </div>
       <div className={`${padding ? "mx-5 md:mx-12" : ""} mt-5`}>
-        {Blogs?.map((item, index) =>
-          <RecentBlogsCard key={index} thumbnail={item.imageUrl} date={item.date} title={item.title} content={item.content} bgColor={"#516470"} />
+        {blogs?.map((item, index) =>
+          <RecentBlogsCard key={index} id={item.id} thumbnail={item.imageUrl} date={item.date} title={item.title} content={item.content} bgColor={"#516470"} />
         )}
       </div>
     </div>

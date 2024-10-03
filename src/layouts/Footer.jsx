@@ -61,7 +61,7 @@ export default function Footer() {
                         >
                             <div className="space-y-5">
                                 <div className="flex items-center">
-                                    <FaEnvelope className="mr-2" />
+                                    <FaEnvelope className="mr-3" />
                                     <Link href={`mailto:${footerData?.email}`}>{footerData?.email}</Link>
                                 </div>
                                 <div className="flex items-center">
@@ -70,8 +70,10 @@ export default function Footer() {
                                 </div>
                                 <div className="flex items-center">
                                     <FaMapMarkerAlt className="mr-2" />
-                                    <address className='max-w-[300px]'>
-                                        {footerData?.address}
+                                    <address className='!font-normal max-w-[300px]'>
+                                        <p className='font-normal'>
+                                            {footerData?.address}
+                                        </p>
                                     </address>
                                 </div>
                             </div>
@@ -85,15 +87,15 @@ export default function Footer() {
                     >
                         <h3 className="text-2xl font-bold">Quick <span className="text-purple">Links</span></h3>
                         <ul className="mt-4 space-y-2">
-                            <motion.li variants={staggerItem}><a href="#">Schedule Appointment</a></motion.li>
-                            <motion.li variants={staggerItem}><a href="#">Media Kit</a></motion.li>
-                            <motion.li variants={staggerItem}><a href="#">Events & Gallery</a></motion.li>
-                            <motion.li variants={staggerItem}><a href="#">Blogs</a></motion.li>
-                            <motion.li variants={staggerItem}><a href="#">Podcasts</a></motion.li>
+                            <motion.li variants={staggerItem}><Link href="#">Schedule Appointment</Link></motion.li>
+                            <motion.li variants={staggerItem}><Link href="#">Media Kit</Link></motion.li>
+                            <motion.li variants={staggerItem}><Link href="/gallery">Events & Gallery</Link></motion.li>
+                            <motion.li variants={staggerItem}><Link href="/blogs">Blogs</Link></motion.li>
+                            <motion.li variants={staggerItem}><Link href="/podcasts">Podcasts</Link></motion.li>
                         </ul>
                     </motion.div>
                 </div>
-                <Image src={footer_vector} alt="logo" className='absolute w-screen left-0 -mt-20 h-[120px] object-cover' />
+                <Image src={footer_vector} alt="logo" className='absolute pointer-events-none w-screen left-0 -mt-20 h-[120px] object-cover' />
             </motion.footer>
             {closeWhatsappPopup === false && (
                 <FloatingWhatsApp

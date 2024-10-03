@@ -13,3 +13,12 @@ export const getAllBlogs = async ({ limit = true } = {}) => {
         console.error('Error fetching blogs:', error);
     }
 };
+
+export const getBlog = async ({ id }) => {
+    try {
+        const response = await axios.get(`${process.env.NEXT_PUBLIC_API_URL}/blogs/${id}`);
+        return response.data;
+    } catch (error) {
+        console.error('Error fetching blog:', error);
+    }
+};

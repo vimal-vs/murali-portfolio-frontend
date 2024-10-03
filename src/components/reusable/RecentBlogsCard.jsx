@@ -2,11 +2,11 @@ import Link from 'next/link'
 import parser from "html-react-parser"
 import Image from 'next/image'
 import { FaCalendar } from 'react-icons/fa'
+import { slug } from '@utils/slug'
 
-export default function RecentBlogsCard({ thumbnail, title, content, date }) {
+export default function RecentBlogsCard({ id, thumbnail, title, content, date }) {
   return (
-    // href={`/blogs/${title}`}
-    <div className="shadow-md border-2 mx-auto mb-8 flex flex-col rounded-2xl bg-white md:pr-4 w-full md:flex-row md:items-center md:hover:scale-[1.01] transition-all duration-300">
+    <Link href={`/blogs/${slug(title)}?id=${id}`} className="shadow-md border-2 mx-auto mb-8 flex flex-col rounded-2xl bg-white md:pr-4 w-full md:flex-row md:items-center md:hover:scale-[1.01] transition-all duration-300">
       <div className="md:mr-8">
         <Image className="w-full rounded-t-2xl md:rounded-t-none md:!rounded-l-2xl md:w-[300px] h-[200px] object-cover border-r-2" width={200} height={200} src={thumbnail} alt="Cover Image" />
       </div>
@@ -17,7 +17,7 @@ export default function RecentBlogsCard({ thumbnail, title, content, date }) {
         </div>
         <p className="md:my-6 my-3 text-gray-500 max-w-[500px] truncate-line pr-5">{parser(content)}</p>
       </div>
-    </div>
+    </Link>
 
   )
 }

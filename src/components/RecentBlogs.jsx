@@ -10,7 +10,7 @@ export default function RecentBlogs() {
 
   useEffect(() => {
     const fetchData = async () => {
-      const data = await getAllBlogs();
+      const data = await getAllBlogs({ limit: true });
       setBlogs(data);
     };
     fetchData();
@@ -55,6 +55,7 @@ function BlogCard({ item }) {
         content={item.content}
         date={item.date}
         url={item.link}
+        id={item.id}
       />
     </motion.div>
   );
