@@ -10,6 +10,7 @@
     "postbuild": "next-sitemap"
   },
   "dependencies": {
+    "@next/third-parties": "^14.2.14",
     "antd": "^5.20.5",
     "axios": "^1.7.2",
     "clsx": "^2.1.1",

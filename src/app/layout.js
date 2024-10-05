@@ -6,6 +6,7 @@ import Footer from "@/layouts/Footer";
 import { CommonProvider } from "@contexts/CommonContext";
 import PageTransition from '@/components/reusable/PageTransition';
 import { meta, defaultMeta } from "@/utils/meta";
+import { GoogleAnalytics } from '@next/third-parties/google'
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -83,6 +84,7 @@ export default function RootLayout({ children }) {
           <Footer />
         </CommonProvider>
       </body>
+      <GoogleAnalytics gaId={process.env.GOOGLE_ANALYTICS_GA_ID} />
     </html>
   );
 }
