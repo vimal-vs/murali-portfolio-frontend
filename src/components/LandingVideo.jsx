@@ -1,15 +1,18 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
-import tamilVideo from "@assets/about/tamil.mp4";
-import englishVideo from "@assets/about/english.mp4";
+// import tamilVideo from "@assets/about/tamil.mp4";
+// import englishVideo from "@assets/about/english.mp4";
 import motion from "framer-motion";
 
 export default function LandingVideo() {
   const videoRef = useRef(null);
   const [language, setLanguage] = useState("");
-
-  const videoSource = language === "tamil" ? tamilVideo : englishVideo;
+  
+  const videoSource =
+    language === "tamil"
+      ? "https://lu0opewsgar0rpm0.public.blob.vercel-storage.com/tamil-gFnJ6S30GEY4dc9pMRfvFTwPjPTe8O.mp4"
+      : "https://lu0opewsgar0rpm0.public.blob.vercel-storage.com/english-HVMzdfiiM39fZRk1yPnf96nfwcOf37.mp4";
 
   useEffect(() => {
     const observer = new IntersectionObserver(
